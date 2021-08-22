@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <title>HOME - ATTRACTIONS</title>
+  <link rel = "stylesheet" th:href="@{/css/styles.css}" />
+</head>
+<body>
+<div class = "container text-center">
+  <div>
+    <h1>ST.LOUIS CITY ATTRACTIONS</h1>
+  </div>
+  <div>
+    <img th:src = "@{/images/archpic_small.jpg}" />
+    <p>Greater St. Louis is a bi-state metropolitan area that completely surrounds and includes the independent
+      city of St. Louis, the principal city. It includes parts of both Missouri and Illinois. The city core is
+      on the Mississippi Riverfront on the border with Illinois in the geographic center of the metro area.
+      Its iconic, 630-ft. Gateway Arch, built in the 1960s, honors the early 19th-century explorations of Lewis
+      and Clark and America's westward expansion in general.
+      As of 2020, the St. Louis MSA is the 21st-largest in the nation with a population of 2,820,253.
+      The larger CSA is ranked 20th-largest in the United States, with a population of 2,909,003.
+
+    </p>
+    <h3><a th:href="@{/registration}">REGISTRATION</a></h3>
+    <h3><a th:href="@{/login}">LOGIN</a></h3>
+  </div>
+</div>
+</body>
+</html>
