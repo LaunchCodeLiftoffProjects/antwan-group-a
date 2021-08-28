@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+<meta charset="UTF-8">
+<title>View Attractions by Category</title>
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+<table>
+   <tr>
+       <th>Name:</th>
+   </tr>
+    <tr th:each="category : ${category}">
+       <tr>
+       <td>
+           <a href="/categories${Category.name}"><a/>
+
+           </a>
+       </td>
+   </tr>
+</table>
+
+</body>
+</html>
+
+<!--<table class="table table-striped">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>Category Name</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tr th:each="category : ${categories}">-->
+<!--        <td th:text="${category.name}"></td>-->
+<!--    </tr>-->
+
+<!--</table>-->

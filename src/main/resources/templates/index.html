@@ -3,23 +3,21 @@
 <head th:replace="fragments :: head"></head>
 <body>
 
-<div th:replace="fragments :: page-header"></div>
+<header th:replace="fragments :: page-header"></header>
 
+<section id="hero" class="d-flex align-items-center">
+    <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
+        <div class="row">
+            <div class="col-lg-8">
+                <h1>Welcome to <span>St Louis Attractions</span></h1>
+                <h2>Here you can find all the attractions in the city</h2>
 
-<div class="container text-center" style="margin-top: 3em">
-    <h2>Welcome to St Louis Attractions!</h2>
-    <h5>Here you can find all the attractions in the city</h5>
-    <img th:src = "@{/images/archpic_small.jpg}" />
-    <p>Greater St. Louis is a bi-state metropolitan area that completely surrounds and includes the independent
-        city of St. Louis, the principal city. It includes parts of both Missouri and Illinois. The city core is
-        on the Mississippi Riverfront on the border with Illinois in the geographic center of the metro area.
-        Its iconic, 630-ft. Gateway Arch, built in the 1960s, honors the early 19th-century explorations of Lewis
-        and Clark and America's westward expansion in general.
-        As of 2020, the St. Louis MSA is the 21st-largest in the nation with a population of 2,820,253.
-        The larger CSA is ranked 20th-largest in the United States, with a population of 2,909,003.
-
-    </p>
-</div>
-
+                <div class="btns">
+                    <a href="/about" class="btn-about animated fadeInUp scrollto">About</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section><!-- End Hero -->
 </body>
 </html>
