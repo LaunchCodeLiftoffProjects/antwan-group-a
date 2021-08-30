@@ -21,6 +21,46 @@
 
     </tr>
     </thead>
+    <tbody>
+      <tr>
+          <td>
+              <ul>
+                  <li th:each="event : ${Museums}">
+                      <a th:href="${event.item_link}" th:text="${event.item_name}" target="_blank" />
+                  </li>
+
+              </ul>
+          </td>
+          <td>
+              <ul>
+                  <li th:each="event : ${Restaurants}">
+                      <a th:href="${event.item_link}" th:text="${event.item_name}" target="_blank" />
+                  </li>
+              </ul>
+          </td>
+          <td>
+              <ul>
+                  <li th:each="event : ${Events}">
+                      <a th:href="${event.item_link}" th:text="${event.item_name}" target="_blank" />
+                  </li>
+              </ul>
+          </td>
+          <td>
+              <ul>
+                  <li th:each="event : ${Parks}">
+                      <a th:href="${event.item_link}" th:text="${event.item_name}" target="_blank" />
+                  </li>
+              </ul>
+          </td>
+          <td>
+              <ul>
+                  <li th:each="event : ${Historical}">
+                      <a th:href="${event.item_link}" th:text="${event.item_name}" target="_blank" />
+                  </li>
+              </ul>
+          </td>
+      </tr>
+    </tbody>
 </table>
 
 </body>
