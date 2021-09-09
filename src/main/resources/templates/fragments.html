@@ -9,7 +9,7 @@
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
           integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{styles.css}">
+    <link rel="stylesheet" th:href="@{/styles.css}">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>
@@ -17,35 +17,49 @@
 </head>
 <body>
 
-<!-- ======= Header ======= -->
-<div th:fragment="page-header" id="header" class="fixed-top d-flex align-items-center">
-    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
+<div th:fragment="page-header" class="container-fluid" style="background-color: rgb(99,140,168) ;">
+    <nav class="navbar navbar-expand-sm navbar-light">
+        <a href="/" class="navbar-brand" style="color: #e6d5c5;">
+            St Louis Attractions</a>
+        <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#toggleMobileMenu"
+        >
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="toggleMobileMenu">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="/categories">Categories</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item" th:unless = "${user}">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item" th:unless = "${user}">
+                    <a class="nav-link" href="/register">Sign Up</a>
+                </li>
+                <li class="nav-item" th:if = "${user}">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profile"><i class="bi bi-person-circle"></i></a>
 
-        <h1 class="logo me-auto me-lg-0"><img src="img/Stl Attractions Logo.png" alt="" class="img-fluid"><a href="#">St Louis Attractions</a></h1>
-
-
-        <nav id="navbar" class="navbar order-last order-lg-0">
-            <ul>
-                <li><a class="nav-link" href="#">Home</a></li>
-                <li><a class="nav-link" href="/category">Categories</a></li>
-                <li><a class="nav-link" href="/attractions">Attractions</a></li>
-                <li><a class="nav-link" href="/login">Login</a></li>
-                <li><a class="nav-link" href="/register">Sign up</a></li>
-                <li><a class="nav-link" href="#"><i class="bi bi-person-circle"></i></a></li>
-
-
-                </ul>
-        </nav>
-    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
 </div>
+
+<div th:fragment="page-title">
+    <h2 class="text-center p-4 mt-3" th:text="${title}"></h2>
 </div>
 
-
-<script src="assets/js/main.js"></script>
 </body>
-
 </html>
-
 
 
 
@@ -68,41 +82,32 @@
 <!--</head>-->
 <!--<body>-->
 
-<!--<div th:fragment="page-header" class="container-fluid" style="background-color:#3944bc;">-->
-<!--    <nav class="navbar navbar-expand-sm navbar-light">-->
-<!--        <a href="/" class="navbar-brand mb-1">-->
-<!--            St Louis Attractions</a>-->
-<!--        <button-->
-<!--                class="navbar-toggler"-->
-<!--                type="button"-->
-<!--                data-bs-toggle="collapse"-->
-<!--                data-bs-target="#toggleMobileMenu"-->
-<!--        >-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
-<!--        <div class="collapse navbar-collapse" id="toggleMobileMenu">-->
-<!--            <ul class="navbar-nav">-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/categories">Categories</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/attractions">Attractions</a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--            <ul class="navbar-nav ms-auto">-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="login">login</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="/register">sign up</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item">-->
-<!--                    <a class="nav-link" href="#"><i class="bi bi-person-circle"></i></a>-->
-<!--                </li>-->
-<!--            </ul>-->
-<!--        </div>-->
-<!--    </nav>-->
+<!--&lt;!&ndash; ======= Header ======= &ndash;&gt;-->
+<!--<div th:fragment="page-header" id="header" class="fixed-top d-flex align-items-center">-->
+<!--    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">-->
+
+<!--        <h1 class="logo me-auto me-lg-0"><img src="img/Stl Attractions Logo.png" alt="" class="img-fluid"><a href="/">St Louis Attractions</a></h1>-->
+
+
+<!--        <nav id="navbar" class="navbar order-last order-lg-0">-->
+<!--            <ul>-->
+<!--                <li><a class="nav-link" href="/">Home</a></li>-->
+<!--                <li><a class="nav-link" href="/categories">Categories</a></li>-->
+<!--                <li><a class="nav-link" href="/attractions">Attractions</a></li>-->
+<!--                <li><a class="nav-link" href="/search">find an attraction</a></li>-->
+<!--                <li><a class="nav-link" href="/login">Login</a></li>-->
+<!--                <li><a class="nav-link" href="/register">Sign up</a></li>-->
+<!--                <li><a class="nav-link" href="#"><i class="bi bi-person-circle"></i></a></li>-->
+
+
+<!--                </ul>-->
+<!--        </nav>-->
+<!--    </div>-->
+<!--</div>-->
 <!--</div>-->
 
+
+<!--<script src="assets/js/main.js"></script>-->
 <!--</body>-->
+
 <!--</html>-->

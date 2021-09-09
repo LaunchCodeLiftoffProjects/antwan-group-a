@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <h2 class = "centered">Select a category</h2>
+</div>
+
+<table class="table table-bordered">
+    <thead class="thead-dark">
+    <tr>
+        <th><img th:src = "@{/img/museums.jfif}" width=250 height=250 style="border:1px solid;border-radius:50px;padding:5px;" /></div><a class="nav-link" href="/museums">Museums</a></th>
+        <th><img th:src = "@{/img/restaurants.jfif}"width=250 height=250 style="border:1px solid #808080;border-radius:50px;padding:5px;"/><a class="nav-link"  href="/restaurants">Restaurants</a></th>
+        <th><img th:src = "@{/img/events.jpg}"width=250 height=250 style="border:1px solid #808080;border-radius:50px;padding:5px;"/><a class="nav-link" href="/events">Events</a></th>
+        <th><img th:src = "@{/img/parks.jpg}"width=250 height=250 style="border:1px solid #808080;border-radius:50px;padding:5px;"/><a class="nav-link" href="/parks">Parks</a></th>
+        <th><img th:src = "@{/img/historical.jpg}"width=250 height=250 style="border:1px solid #808080;border-radius:50px;padding:5px;"/><a class="nav-link" href="/historicalsites">Historical Sites</a></th>
+
+    </tr>
+    </thead>
+</table>
+>

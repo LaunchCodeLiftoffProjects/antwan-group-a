@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
         @GetMapping
         public String about(Model model) {
             model.addAttribute("title", "about");
-            return "about.html";
+            return "about";
         }
 
     }
