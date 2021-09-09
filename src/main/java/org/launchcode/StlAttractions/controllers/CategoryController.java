@@ -15,11 +15,6 @@ public class CategoryController {
 
     @GetMapping("categories")
     public String listCategories(Model model) {
-        model.addAttribute("Museums");
-        model.addAttribute("Restaurants");
-        model.addAttribute("Events");
-        model.addAttribute("Parks");
-        model.addAttribute("Historical");
         return "categories";
     }
     @GetMapping("/restaurants")
