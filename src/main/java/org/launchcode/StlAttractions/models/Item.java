@@ -1,5 +1,7 @@
 package org.launchcode.StlAttractions.models;
 
+import javax.persistence.ManyToOne;
+
 public class Item {
     private String item_category;
     private String item_name;
