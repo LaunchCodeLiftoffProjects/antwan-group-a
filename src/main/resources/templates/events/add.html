@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container body-content">
+
+<nav th:replace="fragments :: page-header"></nav>
+
+<h1>Add Events</h1>
+
+<form method="post" style="max-width:600px;">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="${attraction.attractionName}" />
+        <span th:errors="${attraction.attractionName}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="name">Description</label>
+        <input class="form-control" th:field="${attraction.description}" />
+        <span th:errors="${attraction.description}" class="error"></span>
+    </div>
+    <label th:for="name">Address</label>
+    <input class="form-control" th:field="${attraction.address}" />
+    <span th:errors="${attraction.address}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="name">Link</label>
+        <input class="form-control" th:field="${attraction.linkForAttraction}" />
+        <span th:errors="${attraction.linkForAttraction}" class="error"></span>
+    </div>
+
+
+
+    <input type="submit" value="Add event" />
+</form>
+
+</body>
+</html>

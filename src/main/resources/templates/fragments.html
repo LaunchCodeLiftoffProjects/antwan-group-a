@@ -34,6 +34,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/categories">Categories</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/attractions">Attractions</a>
+                </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item" th:unless = "${user}">
@@ -52,6 +55,17 @@
             </ul>
         </div>
     </nav>
+
+    <!--    <li class="nav-item mx-1 nav-search">-->
+    <!--        <form method="POST" th:action="@{search/}" class="nav-link my-1">-->
+    <!--            <input class="form-control shadow-sm" name="searchQuery" type="search" placeholder="Title / Author / ISBN" aria-label="Search" />-->
+    <!--            <input class="form-control" name="searchParameter" type="hidden" value="all" aria-label="Search" />-->
+    <!--        </form>-->
+    <!--    </li>-->
+</div>
+
+<div th:fragment="page-title">
+    <h2 class="text-center p-4 mt-3" th:text="${title}"></h2>
 </div>
 
 <div th:fragment="page-title">

@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div class="container body-content">
+    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+</div>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Address</th>
+        <th>Website</th>
+
+
+    </tr>
+    </thead>
+
+    <tr th:each="historical : ${Historical}">
+        <td th:text="${historical.attractionName}"></td>
+        <td th:text="${historical.description}"></td>
+        <td> <a th:href="${historical.address}" th:text="${historical.attractionName}" target="_blank" /></td>
+        <td><a th:href="${historical.linkForAttraction}" th:text="${historical.attractionName}" target="_blank" /></td>
+    </tr>
+
+</table>
+<div class="btns">
+    <a href="/historical/add" class="btn-about animated fadeInUp scrollto">Add Historical</a>
+</div>
+</body>
+</html>
