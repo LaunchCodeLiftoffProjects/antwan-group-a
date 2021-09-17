@@ -1,37 +1,23 @@
-
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org/">
-<head th:replace="fragments :: head"></head>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
 <body>
 
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
+    <h2>Attraction</h2>
+    <div class="btns">
+        <a href="/restaurants/add" class="btn-about animated fadeInUp scrollto">Add Restaurant</a>
+    </div>
+    <ul>
+        <li th:each="attraction : ${attractions}">
+            <a th:href="@{'/view' + ${attraction.id}}" th:text="${attraction.name}"></a>
+        </li>
+    </ul>
+
 </div>
 
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Address</th>
-        <th>Website</th>
-
-
-    </tr>
-    </thead>
-
-    <tr th:each="event : ${Events}">
-        <td th:text="${event.attractionName}"></td>
-        <td th:text="${event.description}"></td>
-        <td> <a th:href="${event.address}" th:text="${event.attractionName}" target="_blank" /></td>
-        <td><a th:href="${event.linkForAttraction}" th:text="${event.attractionName}" target="_blank" /></td>
-    </tr>
-
-</table>
-<div class="btns">
-    <a href="/events/add" class="btn-about animated fadeInUp scrollto">Add Events</a>
-</div>
 </body>
 </html>

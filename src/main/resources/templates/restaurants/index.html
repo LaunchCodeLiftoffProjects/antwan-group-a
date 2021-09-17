@@ -7,34 +7,16 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="container body-content">
-    <h2>Restaurants</h2>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Name</th>
-            <th>Description</th>
-            <th>Address</th>
-            <th>Website</th>
-
-
-        </tr>
-        </thead>
-        <tr th:each="restaurant : ${Restaurants}">
-            <td th:text="${restaurant.attractionName}"></td>
-            <td th:text="${restaurant.description}"></td>
-            <td> <a th:href="${restaurant.address}" th:text="${restaurant.attractionName}" target="_blank" /></td>
-            <td><a th:href="${restaurant.linkForAttraction}" th:text="${restaurant.attractionName}" target="_blank" /></td>
-        </tr>
-
-<!--        <li th:each="attraction : ${attractions}">-->
-<!--            <a th:href="@{'/view/' + ${attraction.id}}" th:text="${attraction.attractionName}"></a>-->
-<!--        </li>-->
-<!--    </ul>-->
-
-    </table>
+    <h2>Attraction</h2>
     <div class="btns">
         <a href="/restaurants/add" class="btn-about animated fadeInUp scrollto">Add Restaurant</a>
-        </div>
+    </div>
+    <ul>
+        <li th:each="attraction : ${attractions}">
+            <a th:href="@{'/view' + ${attraction.id}}" th:text="${attraction.name}"></a>
+        </li>
+    </ul>
+
 </div>
 
 </body>

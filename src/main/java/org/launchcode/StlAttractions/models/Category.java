@@ -1,31 +1,44 @@
 package org.launchcode.StlAttractions.models;
 
-import javax.persistence.Entity;
+
+
+import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Entity
 public class Category extends AbstractEntity {
+    @NotNull
+    @Size(min = 3, max = 150)
+    private String name;
 
+//    @ManyToMany(fetch= FetchType.LAZY)
+//    @JoinTable(
+//            name="categories_attractions",
+//            joinColumns = @JoinColumn(name="category_id"),
+//            inverseJoinColumns = @JoinColumn(name="attraction_id")
+//
+//    )
+//    private List<Attraction> attractions;
 
-    @Size(min=3, message="Name must be at least 3 characters long")
-    private String title;
-
-    public Category(@Size(min = 3, message = "Name must be at least 3 characters long") String title) {
-        this.title = title;
+    public Category(String aName) {
+        super();
+        this.name = aName;
     }
 
-    public Category() {}
-
-    public String getTitle() {
-        return title;
+    public Category() {
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    // Getters and Setters //
+
+
+    public String getName() {
+        return name;
     }
 
-    @Override
-    public String toString() {
-        return title;
+    public void setName(String name) {
+        this.name = name;
     }
+
 }

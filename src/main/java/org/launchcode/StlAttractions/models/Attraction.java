@@ -3,44 +3,59 @@ package org.launchcode.StlAttractions.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
 public class Attraction extends AbstractEntity{
 
 
-    private String attractionCategory;
-    private String attractionName;
+    private String name;
+
     @Size(max = 500, message = "Description too long!")
+    private String category;
     private String description;
 
     @NotNull
-    @Size(min=1, max=150)
     private String address;
     private String linkForAttraction;
 
+    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
+    private List<Category>  attractions=new ArrayList<>();
 
-    public Attraction(String attractionCategory,String attractionName, String description,String address, String linkForAttraction) {
-        this.attractionName = attractionName;
+
+    public Attraction(String name,String category, String description,String address, String linkForAttraction, List<Category> attractions) {
+        super();
+        this.name = name;
+        this.category = category;
         this.description = description;
         this.address = address;
         this.linkForAttraction = linkForAttraction;
-        this.attractionCategory = attractionCategory;
+        this.attractions = attractions;
 
+    }
+    public void addAttraction(Category newAttraction){
+        attractions.add(newAttraction);
     }
 
     public Attraction() {}
-    public String getAttractionCategory() {return attractionCategory;}
 
-    public void setAttractionCategory(String attractionCategory) {this.attractionCategory = attractionCategory;}
-
-    public String getAttractionName() {
-        return attractionName;
+    public String getName() {
+        return name;
     }
 
-    public void setAttractionName(String attractionName) {
-        this.attractionName = attractionName;
+    public void setName(String name) {
+        this.name = name;
     }
+
+    public List<Category> getAttractions() {return attractions;}
+
+    public void setAttractions(List<Category> attractions) {this.attractions = attractions;}
+
+    public String getCategory() {return category;}
+
+    public void setCategory(String category) {this.category = category;}
 
     public String getDescription() {
         return description;
@@ -61,7 +76,7 @@ public class Attraction extends AbstractEntity{
 
     @Override
     public String toString() {
-        return attractionName;
+        return name;
     }
 
 

@@ -40,6 +40,9 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item" th:unless = "${user}">
+                    <a class="nav-link" th:href="@{/search}">Search</a>
+                </li>
+                <li class="nav-item" th:unless = "${user}">
                     <a class="nav-link" href="/login">Login</a>
                 </li>
                 <li class="nav-item" th:unless = "${user}">
