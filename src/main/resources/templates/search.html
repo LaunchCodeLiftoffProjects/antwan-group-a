@@ -9,10 +9,9 @@
 <div class="container body-content">
 
     <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
-
+    <div class="search">
     <form th:action="@{/search/results}" method = "post">
         <h2>Search by:</h2>
-        <span> Hit </span>
         <p>
             <span th:each="column : ${columns}">
                 <input
@@ -38,47 +37,27 @@
     <hr />
 
 
-    <table class="job">
-        <tr th:each="attraction : ${attractions}">
-            <td>
-                <p>
-                    Attraction Id:
-                <p th:text="${'Name: ' + attraction.name}"></p>
-                </p>
-                <p>
-                    Category:
-                <p th:text="${attraction.category}"></p>
-                </p>
-                <p>
-                    Address:
-                <ul>
-                    <li>
-                        <p th:text="${attraction.address}"></p>
-                    </li>
-                </ul>
-                </p>
-                <p>
-                    Link:
-                <ul>
-                    <li>
-                        <p th:text="${attraction.linkForAttraction}"></p>
-                    </li>
-                </ul>
-                </p>
-                <p>
-                        Attractions:
-                <ul th:each="i : ${attraction.attractions}">
-                    <li>
-                        <p th:text="${'Name: ' + i.name}"></p>
-                    </li>
-                </ul>
-                </p>
+        <table class="centeredTable">
+            <tr th:each="restaurant : ${restaurants}">
 
-            </td>
-        </tr>
-    </table>
+<!--                <td class="container" style="border-left: 1px solid #e4e4e4; padding-left: 10px;">-->
+<!--                    <img class="largeImage" src="/images/texasRoadhouse.jpg" width="300" height="150">-->
+<!--                </td>-->
+
+                <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >
+                    <h3 style="text-align: center; color: black;">
+                        <a th:href="@{'/restaurants/view/' + ${restaurant.id}}" th:text="${restaurant.name}"></a>
+                    </h3>
+
+                    <p th:text="${restaurant.category}" style="text-align: center"></p>
+                    <p th:href="${restaurant.address}" style="text-align: center"></p>
+                    <p th:href="${restaurant.linkForAddress}" style="text-align: center"></p>
+<!--                    <p th:text="${'Cuisine: ' + restaurant.cuisine}" style="text-align: center"></p>-->
+                </td>
+            </tr>
+        </table>
 
 </div>
-
+</div>
 </body>
 </html>

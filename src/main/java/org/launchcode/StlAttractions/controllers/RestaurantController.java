@@ -1,7 +1,9 @@
 package org.launchcode.StlAttractions.controllers;
 
 import org.launchcode.StlAttractions.data.AttractionRepository;
+import org.launchcode.StlAttractions.data.CategoryRepository;
 import org.launchcode.StlAttractions.models.Attraction;
+import org.launchcode.StlAttractions.models.AttractionData;
 import org.launchcode.StlAttractions.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,47 +19,49 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
+
+import static org.launchcode.StlAttractions.controllers.ListController.columnChoices;
 
 @Controller
 @RequestMapping("restaurants")
+
 public class RestaurantController {
     @Autowired
     private AttractionRepository attractionRepository;
-
-    private Attraction attraction = new Attraction();
-
-
+    @Autowired
+    private CategoryRepository categoryRepository;
     @RequestMapping("index")
-    public String index(Model model) {
+    public String list(Model model) {
+        model.addAttribute("view all","View All");
+        model.addAttribute("attractions",attractionRepository.findAll());
+        model.addAttribute("cuisines", categoryRepository.findAll());
 
-        model.addAttribute("title", "Attraction");
-        model.addAttribute("attraction", attractionRepository.findAll());
         return "restaurants/index";
-    }
 
+}
 
     @GetMapping("add")
-    public String displayAddAttractionForm(@ModelAttribute Attraction attraction, Model model){
-        model.addAttribute("title","Add Attraction");
-        model.addAttribute("attraction", attraction);
+    public String displayAddAttractionForm(Model model){
+        model.addAttribute("title","Add attraction");
+        model.addAttribute(new Attraction());
+        model.addAttribute("attractions",attractionRepository.findAll());
         return "restaurants/add";
     }
 
     @PostMapping("add")
     public String processAddAttractionForm(@ModelAttribute @Valid Attraction newAttraction, Errors errors, Model model){
-        if(errors.hasErrors()){
-//            attractionRepository.save(newAttraction);
-            //model.addAttribute("attraction", attractionRepository.findAll());
+        if(errors.hasErrors()) {
+            model.addAttribute("title","Add Restaurant");
             return "restaurants/add";
         }
-
-
         attractionRepository.save(newAttraction);
-        model.addAttribute("attraction",attractionRepository.findAll());
         return "redirect:index";
     }
+
 //    @GetMapping("delete")
 //    public String displayDeleteAttractionForm(Model model) {
 //        model.addAttribute("title", "Delete Attraction");

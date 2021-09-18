@@ -1,10 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
 <body>
-$END$
+<div th:replace="fragments :: page-header"></div>
+
+<div class="body-content">
+    <h1 class="centered">View Restaurants by Category</h1>
+</div>
+
+<table class="list">
+    <tr style="font-size: 20px">
+        <th>All</th>
+        <th>Category</th>
+        <th>Location</th>
+    </tr>
+    <td>
+        <li>
+            <a th:href="@{/list/attractions(column='All',value='View All')}">View All</a>
+        </li>
+    </td>
+    <td>
+        <li th:each="category : ${categories}">
+            <a th:href="@{/list/(column=category,value=${category.name})}" th:text="${category.name}" style=""></a>
+        </li>
+    </td>
+    <td>
+        <li th:each="attraction : ${attractions}">
+            <a th:href="@{/list/(column=address,value=${restaurant.address})}" ></a>
+        </li>
+    </td>
+</table>
+
+<div class="text-center">
+    <div th:replace="fragments :: app-name-auth"></div>
+</div>
+
+
 </body>
 </html>

@@ -10,34 +10,31 @@ import java.util.List;
 @Entity
 public class Attraction extends AbstractEntity{
 
-
+    @ManyToOne
+    private Category category;
     private String name;
 
     @Size(max = 500, message = "Description too long!")
-    private String category;
     private String description;
 
     @NotNull
     private String address;
     private String linkForAttraction;
+    private String openingTime;
+    private String closingTime;
 
-    @OneToMany(cascade = CascadeType.ALL,orphanRemoval = true)
-    private List<Category>  attractions=new ArrayList<>();
 
-
-    public Attraction(String name,String category, String description,String address, String linkForAttraction, List<Category> attractions) {
+    public Attraction(String name, String description,String address, String linkForAttraction, String openingTime, String closingTime) {
         super();
         this.name = name;
-        this.category = category;
         this.description = description;
         this.address = address;
         this.linkForAttraction = linkForAttraction;
-        this.attractions = attractions;
+        this.openingTime = openingTime;
+        this.closingTime = closingTime;
 
     }
-    public void addAttraction(Category newAttraction){
-        attractions.add(newAttraction);
-    }
+
 
     public Attraction() {}
 
@@ -49,13 +46,9 @@ public class Attraction extends AbstractEntity{
         this.name = name;
     }
 
-    public List<Category> getAttractions() {return attractions;}
+    public Category getCategory() { return category; }
 
-    public void setAttractions(List<Category> attractions) {this.attractions = attractions;}
-
-    public String getCategory() {return category;}
-
-    public void setCategory(String category) {this.category = category;}
+    public void setCategory(Category category) { this.category = category; }
 
     public String getDescription() {
         return description;
@@ -72,6 +65,14 @@ public class Attraction extends AbstractEntity{
     public String getLinkForAttraction() { return linkForAttraction; }
 
     public void setLinkForAttraction(String linkForAttraction) { this.linkForAttraction = linkForAttraction; }
+
+    public String getOpeningTime() {return openingTime;}
+
+    public void setOpeningTime(String openingTime) {this.openingTime = openingTime;}
+
+    public String getClosingTime() {return closingTime;}
+
+    public void setClosingTime(String closingTime) {this.closingTime = closingTime;}
 
 
     @Override
