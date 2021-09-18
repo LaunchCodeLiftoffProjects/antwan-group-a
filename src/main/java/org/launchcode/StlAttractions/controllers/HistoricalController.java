@@ -1,6 +1,7 @@
 package org.launchcode.StlAttractions.controllers;
 
 import org.launchcode.StlAttractions.data.AttractionRepository;
+import org.launchcode.StlAttractions.data.CategoryRepository;
 import org.launchcode.StlAttractions.models.Attraction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,15 +23,17 @@ public class HistoricalController {
     @Autowired
     private AttractionRepository attractionRepository;
 
-    private Attraction attraction = new Attraction();
-
+    @Autowired
+    private CategoryRepository categoryRepository;
 
     @RequestMapping("index")
-    public String index(Model model) {
+    public String list(Model model) {
+        model.addAttribute("view all","View All");
+        model.addAttribute("attractions",attractionRepository.findAll());
+        model.addAttribute("cuisines", categoryRepository.findAll());
 
-        model.addAttribute("title", "Attraction");
-        model.addAttribute("attraction", attractionRepository.findAll());
         return "historical/index";
+
     }
 
 

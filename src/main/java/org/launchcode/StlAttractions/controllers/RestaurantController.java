@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-import static org.launchcode.StlAttractions.controllers.ListController.columnChoices;
+import static org.launchcode.StlAttractions.controllers.AttractionController.columnChoices;
 
 @Controller
 @RequestMapping("restaurants")
