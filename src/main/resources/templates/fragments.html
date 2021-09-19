@@ -18,7 +18,7 @@
 <body>
 
 <div th:fragment="page-header" class="container-fluid" style="background-color: rgb(99,140,168) ;">
-    <nav class="navbar navbar-expand-sm navbar-light">
+    <nav id="navbar" class="navbar navbar-expand-sm navbar-light">
         <a href="/" class="navbar-brand" style="color: #e6d5c5;">
             St Louis Attractions</a>
         <button
@@ -32,27 +32,27 @@
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/categories">Categories</a>
+                    <a class="nav-link scrollto" href="/categories">Categories</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/attractions">Attractions</a>
+                    <a class="nav-link scrollto" href="/attractions">Attractions</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item" th:unless = "${user}">
-                    <a class="nav-link" th:href="@{/search}">Search</a>
+                    <a class="nav-link scrollto" th:href="@{/search}">Search</a>
                 </li>
                 <li class="nav-item" th:unless = "${user}">
-                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link scrollto" href="/login">Login</a>
                 </li>
                 <li class="nav-item" th:unless = "${user}">
-                    <a class="nav-link" href="/register">Sign Up</a>
+                    <a class="nav-link scrollto" href="/register">Sign Up</a>
                 </li>
                 <li class="nav-item" th:if = "${user}">
-                    <a class="nav-link" href="/logout">Logout</a>
+                    <a class="nav-link scrollto" href="/logout">Logout</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/profile"><i class="bi bi-person-circle"></i></a>
+                    <a class="nav-link scrollto" href="/profile"><i class="bi bi-person-circle"></i></a>
 
                 </li>
             </ul>

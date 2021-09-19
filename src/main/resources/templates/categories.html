@@ -4,7 +4,7 @@
 <body>
 
 <div th:replace="fragments :: page-header"></div>
-
+<section id="categories">
 <div class="container body-content">
   <h1 th:text="${#strings.capitalizeWords(title)}"></h1>
   <h2 class = "centered">Select a category</h2>
@@ -22,3 +22,4 @@
   </tr>
   </thead>
 </table>
+</section>
