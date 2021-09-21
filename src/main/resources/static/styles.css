@@ -62,7 +62,7 @@
 #restaurants{
      width: 100%;
      height: 100%;
-     background: url("img/mus.jpg") top center;
+     background: url("img/background.jpg") top center;
      background-size: cover;
      background-position:center;
      background-repeat:no-repeat;
@@ -72,7 +72,7 @@
 #museums{
      width: 100%;
      height: 100%;
-     background: url("img/mus.jpg") top center;
+     background: url("img/background.jpg") top center;
      background-size: cover;
      background-position:center;
      background-repeat:no-repeat;
@@ -82,7 +82,7 @@
 #events{
      width: 100%;
      height: 100%;
-     background: url("img/mus.jpg") top center;
+     background: url("img/background.jpg") top center;
      background-size: cover;
      background-position:center;
      background-repeat:no-repeat;
@@ -91,7 +91,7 @@
 }#parks{
       width: 100%;
        height: 100%;
-       background: url("img/mus.jpg") top center;
+       background: url("img/background.jpg") top center;
        background-size: cover;
        background-position:center;
        background-repeat:no-repeat;
@@ -101,13 +101,23 @@
  #historical{
       width: 100%;
       height: 100%;
-      background: url("img/mus.jpg") top center;
+      background: url("img/background.jpg") top center;
       background-size: cover;
       background-position:center;
       background-repeat:no-repeat;
       position: relative;
       padding: 0;
  }
+  #attractions{
+       width: 100%;
+       height: 100%;
+       background: url("img/background.jpg") top center;
+       background-size: cover;
+       background-position:center;
+       background-repeat:no-repeat;
+       position: relative;
+       padding: 0;
+  }
 #hero:before {
   content: "";
 
@@ -156,7 +166,6 @@
   border-radius: 50px;
   transition: 0.3s;
   line-height: 1;
-  color: white;
   border: 2px solid  #e6d5c5;
 }
 

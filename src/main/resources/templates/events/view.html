@@ -6,15 +6,19 @@
 
 <nav th:replace="fragments :: page-header"></nav>
 
-<div class="listing">
-    <!--    <p th:text="${'ID: ' + product.id}"></p>-->
-    <!--   <img th:src="${product.pictureURL}" />-->
+<div class="attractions">
     <p th:text="${'Name: ' + attraction.name}"></p>
-    <p th:text="${'Category: ' + attraction.category}"></p>
     <p th:text="${'Description: ' + attraction.description}"></p>
-    <p th:href="${'Address: ' + attraction.address}"></p>
-    <p th:href="${'Link: ' + attraction.linkForAttraction}"></p>
+    <p> <a th:href="${attraction.address}" th:text="${attraction.name}" target="_blank" /></p>
 </div>
+<!--    <ul th:each="i : ${grocerylists.items}">-->
+<!--        <li th:text="${'Item : ' + i.name}"></li>-->
+<!--        <li th:text="${'Quantity : ' + i.quantity}"></li>-->
+<!--    </ul>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <a th:href="@{/edit/{Id}(Id=${grocerylists.id})}">Edit</a>-->
+<!--</div>-->
 
 
 </body>

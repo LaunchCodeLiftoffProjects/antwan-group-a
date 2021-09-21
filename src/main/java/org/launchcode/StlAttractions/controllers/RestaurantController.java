@@ -38,7 +38,7 @@ public class RestaurantController {
     public String list(Model model) {
         model.addAttribute("view all","View All");
         model.addAttribute("attractions",attractionRepository.findAll());
-        //model.addAttribute("category", categoryRepository.findAll());
+        model.addAttribute("cuisines", categoryRepository.findAll());
 
         return "restaurants/index";
 
@@ -61,6 +61,17 @@ public class RestaurantController {
         attractionRepository.save(newAttraction);
         return "redirect:index";
     }
+//    @GetMapping("view/{attractionId}")
+//    public String displayViewRestaurant(Model model, @PathVariable int attractionId) {
+//
+//        Optional optAttraction = attractionRepository.findById(attractionId);
+//        if (optAttraction.isPresent()) {
+//            Attraction attraction = (Attraction) optAttraction.get();
+//            model.addAttribute("attraction", attraction);
+//            return "view";
+//        } else {
+//            return "redirect:../";
+//        }
 //    @GetMapping("delete")
 //    public String displayDeleteAttractionForm(Model model) {
 //        model.addAttribute("title", "Delete Attraction");

@@ -19,6 +19,7 @@
         <th>Description</th>
         <th>Address</th>
         <th>Website</th>
+        <th>Hours Of Operations</th>
     </tr>
     </thead>
     <tr th:each="attraction: ${attractions}">
@@ -26,7 +27,10 @@
         <td th:text="${attraction.description}"></td>
         <td> <a th:href="${attraction.address}" th:text="${attraction.name}" target="_blank" /></td>
         <td><a th:href="${attraction.linkForAttraction}" th:text="${attraction.name}" target="_blank" /></td>
-
+        <td>
+            <h6 th:text="${attraction.openingTime}+ '-'"></h6>
+            <h6 th:text="${attraction.closingTime}"></h6>
+        </td>
         </td>
     </tr>
 </table>

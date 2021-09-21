@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container" style="background:url(img/log-back.jpg); background-size: cover;">
+
+<div th:replace="fragments :: page-header"></div>
+
+<div th:replace="fragments :: page-title"></div>
+
+<div class="d-flex justify-content-center">
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label">First Name
+                <input class="form-control" type="text" th:field="${registerFormDTO.firstName}" />
+            </label>
+            <p class="error" th:errors="${registerFormDTO.firstName}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last Name
+                <input class="form-control" type="text" th:field="${registerFormDTO.lastName}" />
+            </label>
+            <p class="error" th:errors="${registerFormDTO.lastName}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email
+                <input class="form-control" type="text" th:field="${registerFormDTO.email}" />
+            </label>
+            <p class="error" th:errors="${registerFormDTO.email}"></p>
+            <div class="mb-3">
+                <label class="form-label">Username
+                    <input class="form-control" type="text" th:field="${registerFormDTO.username}" />
+                </label>
+                <p class="error" th:errors="${registerFormDTO.username}"></p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Password
+                    <input class="form-control" th:field="${registerFormDTO.password}" type="password" />
+                </label>
+                <p class="error" th:errors="${registerFormDTO.password}"></p>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Verify Password
+                    <input class="form-control" th:field="${registerFormDTO.verifyPassword}" type="password" />
+                </label>
+            </div>
+            <div class="mb-3">
+                <input type="submit" class="btn btn-primary" value="Sign Up" />
+            </div>
+        </div>
+    </form>
+
+</div>
+
+</body>
+</html>

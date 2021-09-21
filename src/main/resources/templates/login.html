@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org/">
 <head th:replace="fragments :: head"></head>
-<body class="container" style="background:url(img/log-back.jpg); background-size: cover;margin: 0 auto;width:250px;text-align:center">
+<body  class="container" style="background:url(img/log-back.jpg); background-size: cover;">
 
+<div th:replace="fragments :: page-header"></div>
 
-<form method="post" >
-    <div class="form-group" >
-        <label th:for="username">Username
-            <input class="form-control" th:field="${loginFormDTO.username}">
-        </label>
-        <p class="error" th:errors="${loginFormDTO.username}"></p>
-    </div>
-    <div class="form-group">
-        <label>Password
-            <input class="form-control" th:field="${loginFormDTO.password}" type="password">
-        </label>
-        <p class="error" th:errors="${loginFormDTO.password}"></p>
-    </div>
+<div class="alert alert-success text-center" role="alert" th:text="${logout}" th:if="${logout}"></div>
+<div class="alert alert-warning text-center" role="alert" th:text="${mustlogin}" th:if="${mustlogin}"></div>
 
-    <input type="submit" class="btn btn-primary"style="btn:hover;background: rgb(99,140,168)" value="Log In">
+<div th:replace="fragments :: page-title"></div>
 
-</form>
+<div class="d-flex justify-content-center">
+    <form method="post">
+        <div class="mb-3">
+            <label class="form-label" th:for="username">Username
+                <input class="form-control" th:field="${loginFormDTO.username}">
+            </label>
+            <p class="error" th:errors="${loginFormDTO.username}"></p>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Password
+                <input class="form-control" th:field="${loginFormDTO.password}" type="password">
+            </label>
+            <p class="error" th:errors="${loginFormDTO.password}"></p>
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" value="Log In" />
+        </div>
+        <div class="mb-3">
+            <p>Don't have an account? <a href="/signUp">Sign Up!</a> 😊</p>
+        </div>
+    </form>
 
-<p>Don't have an account? <a href="/register">Register here!</a></p>
+</div>
+
 
 </body>
 </html>
+
+

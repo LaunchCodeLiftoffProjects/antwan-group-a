@@ -18,8 +18,6 @@ public class AttractionController {
     @Autowired
     private AttractionRepository attractionRepository;
 
-//    @Autowired
-//    private CuisineRepository cuisineRepository;
 
     static HashMap<String, String> columnChoices = new HashMap<>();
 

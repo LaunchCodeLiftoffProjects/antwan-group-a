@@ -1,28 +1,25 @@
 package org.launchcode.StlAttractions.models;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 public class Category extends AbstractEntity{
 
-    /*    @JoinColumn(name = "cuisine_id")*/
-    @OneToMany(mappedBy = "category")
+    @OneToMany(mappedBy="category")
     private List<Attraction> attraction = new ArrayList<>();
 
     @NotNull
     @Size(min=3, max=150)
     private String name;
 
-    public Category(String aName/*, List<Restaurant> aRestaurant*/) {
+    public Category(String name) {
         super();
-        this.name = aName;
-        /*        this.restaurant = aRestaurant;*/
+        this.name = name;
     }
 
     public Category() { }
@@ -37,9 +34,7 @@ public class Category extends AbstractEntity{
         this.name = name;
     }
 
-/*    public List<Restaurant> getRestaurant() { return restaurant; }
-    public void setRestaurant(List<Restaurant> restaurant) { this.restaurant = restaurant; }*/
-
+    public List<Attraction> getAttraction() { return attraction; }
     @Override
     public String toString() {
         return name;

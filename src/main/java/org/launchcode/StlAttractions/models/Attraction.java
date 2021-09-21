@@ -10,8 +10,13 @@ import java.util.List;
 @Entity
 public class Attraction extends AbstractEntity{
 
+
     @ManyToOne
     private Category category;
+
+    @OneToMany(mappedBy = "attraction")
+    private List<Review> reviews = new ArrayList<>();
+
     private String name;
 
     @Size(max = 500, message = "Description too long!")
@@ -20,19 +25,24 @@ public class Attraction extends AbstractEntity{
     @NotNull
     private String address;
     private String linkForAttraction;
+
+    @NotNull(message = "Hours is required.")
     private String openingTime;
+
+    @NotNull(message = "Hours is required.")
     private String closingTime;
 
 
-    public Attraction(String name, String description,String address, String linkForAttraction, String openingTime, String closingTime) {
+    public Attraction(String name,Category category , String description,String address, String linkForAttraction, String aOpeningTime, String aClosingTime, List<Review> reviews) {
         super();
         this.name = name;
+        this.category = category;
         this.description = description;
         this.address = address;
         this.linkForAttraction = linkForAttraction;
-        this.openingTime = openingTime;
-        this.closingTime = closingTime;
-
+        this.openingTime = aOpeningTime;
+        this.closingTime = aClosingTime;
+        this.reviews = reviews;
     }
 
 
@@ -46,9 +56,9 @@ public class Attraction extends AbstractEntity{
         this.name = name;
     }
 
-    public Category getCategory() { return category; }
+    public Category getCategory() {return category;}
 
-    public void setCategory(Category category) { this.category = category; }
+    public void setCategory(Category category) {this.category = category;}
 
     public String getDescription() {
         return description;
@@ -66,13 +76,25 @@ public class Attraction extends AbstractEntity{
 
     public void setLinkForAttraction(String linkForAttraction) { this.linkForAttraction = linkForAttraction; }
 
-    public String getOpeningTime() {return openingTime;}
+    public String getOpeningTime() {
+        return openingTime;
+    }
 
-    public void setOpeningTime(String openingTime) {this.openingTime = openingTime;}
+    public void setOpeningTime(String openingTime) {
+        this.openingTime = openingTime;
+    }
 
-    public String getClosingTime() {return closingTime;}
+    public String getClosingTime() {
+        return closingTime;
+    }
 
-    public void setClosingTime(String closingTime) {this.closingTime = closingTime;}
+    public void setClosingTime(String closingTime) {
+        this.closingTime = closingTime;
+    }
+
+    public List<Review> getReviews() {return reviews;}
+
+    public void setReviews(List<Review> reviews) {this.reviews = reviews;}
 
 
     @Override

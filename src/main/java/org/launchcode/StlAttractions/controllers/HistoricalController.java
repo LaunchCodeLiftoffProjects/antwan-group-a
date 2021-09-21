@@ -30,7 +30,7 @@ public class HistoricalController {
     public String list(Model model) {
         model.addAttribute("view all","View All");
         model.addAttribute("attractions",attractionRepository.findAll());
-        model.addAttribute("cuisines", categoryRepository.findAll());
+        model.addAttribute("category", categoryRepository.findAll());
 
         return "historical/index";
 
@@ -47,8 +47,6 @@ public class HistoricalController {
     @PostMapping("add")
     public String processAddAttractionForm(@ModelAttribute @Valid Attraction newAttraction, Errors errors, Model model){
         if(errors.hasErrors()){
-//            attractionRepository.save(newAttraction);
-            //model.addAttribute("attraction", attractionRepository.findAll());
             return "historical/add";
         }
 

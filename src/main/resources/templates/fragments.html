@@ -37,27 +37,31 @@
                 <li class="nav-item">
                     <a class="nav-link scrollto" href="/attractions">Attractions</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link scrollto" href="@{/add-review}">Add review</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link scrollto" th:href="@{/search}">Search</a>
+                </li>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item" th:unless = "${user}">
-                    <a class="nav-link scrollto" th:href="@{/search}">Search</a>
+                    <a class="nav-link" href="/login">login</a>
                 </li>
                 <li class="nav-item" th:unless = "${user}">
-                    <a class="nav-link scrollto" href="/login">Login</a>
-                </li>
-                <li class="nav-item" th:unless = "${user}">
-                    <a class="nav-link scrollto" href="/register">Sign Up</a>
+                    <a class="nav-link" href="/signUp">sign up</a>
                 </li>
                 <li class="nav-item" th:if = "${user}">
-                    <a class="nav-link scrollto" href="/logout">Logout</a>
+                    <a class="nav-link" href="/logout">logout</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link scrollto" href="/profile"><i class="bi bi-person-circle"></i></a>
+                    <a class="nav-link" href="/profile"><i class="bi bi-person-circle"></i></a>
 
                 </li>
             </ul>
         </div>
     </nav>
+</div>
 
     <!--    <li class="nav-item mx-1 nav-search">-->
     <!--        <form method="POST" th:action="@{search/}" class="nav-link my-1">-->
@@ -65,10 +69,6 @@
     <!--            <input class="form-control" name="searchParameter" type="hidden" value="all" aria-label="Search" />-->
     <!--        </form>-->
     <!--    </li>-->
-</div>
-
-<div th:fragment="page-title">
-    <h2 class="text-center p-4 mt-3" th:text="${title}"></h2>
 </div>
 
 <div th:fragment="page-title">

@@ -5,16 +5,29 @@
 <body class="container  body-content">
 
 <nav th:replace="fragments :: page-header"></nav>
+<div>
+    <h3 style="margin: 75px;">Hours</h3>
+    <h6 th:text="${attraction.openingTime}"></h6>
+    <h6 th:text="${attraction.closingTime}"></h6>
+</div>
+</div>
 
+<div class="column">
+    <div>
+        <h3>
+            <a class="reviewLink" href="/review">Write a Review</a>
+        </h3>
+    </div>
 <div class="listing">
     <!--    <p th:text="${'ID: ' + product.id}"></p>-->
     <!--   <img th:src="${product.pictureURL}" />-->
     <p th:text="${'Name: ' + attraction.name}"></p>
+    <p th:text="${'Category: ' + attraction.category}"></p>
     <p th:text="${'Description: ' + attraction.description}"></p>
     <p th:href="${'Address: ' + attraction.address}"></p>
     <p th:href="${'Link: ' + attraction.linkForAttraction}"></p>
 </div>
-<!--<a th:href="@{/edit/{Id}(Id=${attraction.id})}">Edit</a>-->
 
+</div>
 </body>
 </html>

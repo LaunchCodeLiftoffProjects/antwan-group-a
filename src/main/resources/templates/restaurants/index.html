@@ -5,31 +5,35 @@
 
 <body>
 <div th:replace="fragments :: page-header"></div>
-<section id="restaurants">
-<div class="body-content">
-    <h2 class="centered" th:text="${#strings.capitalizeWords(title)}"></h2>
-</div>
-<div class="btns">
-    <a href="/restaurants/add" class="btn-about animated fadeInUp scrollto">Add Restaurant</a>
-</div>
-<table class="table table-striped">
-    <thead>
-    <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Address</th>
-        <th>Website</th>
-    </tr>
-    </thead>
-<tr th:each="attraction: ${attractions}">
-    <td th:text="${attraction.name}"></td>
-    <td th:text="${attraction.description}"></td>
-    <td> <a th:href="${attraction.address}" th:text="${attraction.name}" target="_blank" /></td>
-    <td><a th:href="${attraction.linkForAttraction}" th:text="${attraction.name}" target="_blank" /></td>
-
-        </td>
-    </tr>
-</table>
+<section id="parks">
+    <div class="body-content">
+        <h2 class="centered" th:text="${#strings.capitalizeWords(title)}"></h2>
+    </div>
+    <div class="btns">
+        <a href="/restaurants/add" class="btn-about animated fadeInUp scrollto">Add Restaurant</a>
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Address</th>
+            <th>Website</th>
+            <th>Hours Of Operation</th>
+        </tr>
+        </thead>
+        <tr th:each="attraction: ${attractions}">
+            <td th:text="${attraction.name}"></td>
+            <td th:text="${attraction.description}"></td>
+            <td> <a th:href="${attraction.address}" th:text="${attraction.name}" target="_blank" /></td>
+            <td><a th:href="${attraction.linkForAttraction}" th:text="${attraction.name}" target="_blank" /></td>
+            <td>
+                <h6 th:text="${attraction.openingTime}+ '-'"></h6>
+                <h6 th:text="${attraction.closingTime}"></h6>
+            </td>
+            </td>
+        </tr>
+    </table>
 </section>
 </body>
 </html>

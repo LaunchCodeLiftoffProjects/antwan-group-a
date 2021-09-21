@@ -2,37 +2,41 @@ package org.launchcode.StlAttractions.models;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 public class Review extends AbstractEntity {
 
-    private String reviewText;
+
 
     @ManyToOne
     private Attraction attraction;
 
-    @ManyToOne
-    private User user;
+    @NotNull(message = "Username is required.")
+    private String name;
 
-    public Review() {}
+    @NotNull(message = "Date is required.")
+    private String date;
 
-    public Review(String reviewText) {
-        this.reviewText = reviewText;
-    }
+    @Size(max=500)
+    private String comment;
 
-    public Review(String reviewText, Attraction attraction, User user) {
-        this.reviewText = reviewText;
+    @NotNull(message = "Rating is required.")
+    private Integer rating;
+
+    public Review(Attraction attraction, String name, String date, String comment, Integer rating) {
         this.attraction = attraction;
-        this.user = user;
+        this.name = name;
+        this.date = date;
+        this.comment = comment;
+        this.rating = rating;
     }
 
-    public String getReviewText() {
-        return reviewText;
-    }
+    public Review() { }
 
-    public void setReviewText(String reviewText) {
-        this.reviewText = reviewText;
-    }
+    // Getters and Setters //
 
     public Attraction getAttraction() {
         return attraction;
@@ -42,16 +46,36 @@ public class Review extends AbstractEntity {
         this.attraction = attraction;
     }
 
-    public User getUser() {
-        return user;
+    public String getName() {
+        return name;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @Override
-    public String toString() {
-        return reviewText;
+    public String getDate() {
+        return date;
     }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Integer getRating() {
+        return rating;
+    }
+
+    public void setRating(Integer rating) {
+        this.rating = rating;
+    }
+
 }

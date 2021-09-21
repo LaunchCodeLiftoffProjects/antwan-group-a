@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head">
+</head>
+<body>
+
+<div th:replace="fragments :: page-header"></div>
+
+<div th:replace="fragments :: page-title"></div>
+
+<div class="container body-content col-5 mt-5">
+  <div class="row align-items-center">
+    <!--      <div class="text-justify text-center">-->
+    <div class="col">
+      <img class="profile-icon" th:src="@{img/profile.png}"/>
+    </div>
+    <div class="col">
+      <h4 th:text="${user.firstName + ' ' + user.lastName}"></h4>
+      <h4 th:text="${user.email}"></h4>
+    </div>
+
+    <div class="text-justify"><br>
+      <h4 th:text="${'My Reviews:'}"></h4>
+    </div>
+
+  </div>
+
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <!--            <td scope="col"></td>-->
+      <th scope="col">Attraction</th>
+      <th scope="col">Review</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="review : ${user.getReviews}">
+      <!--                <td><img class="soda-img" th:src="@{${drink.imagePath}}"></td>-->
+      <td th:text="${review.attraction}"></td>
+      <td th:text="${review}"></td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>
+</body>
+</html>
