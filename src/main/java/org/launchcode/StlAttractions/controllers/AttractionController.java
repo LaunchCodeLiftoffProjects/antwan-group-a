@@ -1,62 +1,68 @@
 package org.launchcode.StlAttractions.controllers;
 
 import org.launchcode.StlAttractions.data.AttractionRepository;
+import org.launchcode.StlAttractions.data.CategoryRepository;
 import org.launchcode.StlAttractions.models.Attraction;
 import org.launchcode.StlAttractions.models.AttractionData;
+import org.launchcode.StlAttractions.models.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.*;
 
-import java.util.HashMap;
+import javax.validation.Valid;
+import java.util.Optional;
 
 @Controller
-@RequestMapping("attractions")
+@RequestMapping("attraction")
 public class AttractionController {
 
     @Autowired
     private AttractionRepository attractionRepository;
 
+    @Autowired
+    private CategoryRepository categoryRepository;
 
-    static HashMap<String, String> columnChoices = new HashMap<>();
 
-    public AttractionController () {
-
-        columnChoices.put("all", "All");
-        columnChoices.put("name", "Name");
-        columnChoices.put("address", "Address");
-        columnChoices.put("link", "Link");
-
+    @GetMapping("")
+    public String displayAddAttractionForm(Model model) {
+        model.addAttribute("title", "Add Attraction");
+        model.addAttribute(new Attraction());
+        model.addAttribute("categories", categoryRepository.findAll());
+        return "add-attraction";
     }
 
-    @RequestMapping("")
-    public String list(Model model) {
-        model.addAttribute("view all","View All");
-        model.addAttribute("attractions",attractionRepository.findAll());
-        //model.addAttribute("cuisines", cuisineRepository.findAll());
+    @PostMapping("")
+    public String processAddAttractionForm(@ModelAttribute @Valid Attraction newAttraction,
+                                           Errors errors, Model model, @RequestParam int categoryId) {
 
-        return "attractions";
-    }
-
-    @RequestMapping("attractions")
-    public String listRestaurantsByColumnAndValue(Model model, @RequestParam String column, @RequestParam String value) {
-        Iterable<Attraction> attractions = null;
-        if (column.toLowerCase().equals("all")) {
-            attractions = attractionRepository.findAll();
-            model.addAttribute("title", "All Attractions");
+        if (errors.hasErrors()) {
+            model.addAttribute("title", "Add Attraction");
+            model.addAttribute("categories", categoryRepository.findAll());
+            return "add-attraction";
         }
-        else if (column.toLowerCase().equals("category")) {
-            attractions = AttractionData.findByColumnAndValue(column, value, attractionRepository.findAll());
-            model.addAttribute("title", "Restaurants with " + value + " category" );
+        Optional optCategory = categoryRepository.findById(categoryId);
+        if (optCategory.isPresent()) {
+            Category category = (Category) optCategory.get();
+            newAttraction.setCategory(category);
         }
 
-        model.addAttribute("attractions", attractions);
-        return "attractions";
+        attractionRepository.save(newAttraction);
+
+        return "redirect:";
     }
-
-
-
-
+//    @GetMapping("view/{attractionId}")
+//    public String displayViewAttraction(Model model, @PathVariable int attractionId) {
+//
+//        Optional optAttraction = attractionRepository.findById(attractionId);
+//        if (optAttraction.isPresent()) {
+//            Attraction attraction = (Attraction) optAttraction.get();
+//            model.addAttribute("attraction", attraction);
+//            return "view";
+//        } else {
+//            return "redirect:../";
+//        }
+//    }
 
 }

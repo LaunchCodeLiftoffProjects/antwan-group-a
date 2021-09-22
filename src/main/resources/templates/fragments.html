@@ -16,11 +16,52 @@
 
 </head>
 <body>
+<!--<nav th:fragment="page-header" class="navbar navbar-expand-lg navbar-light">-->
+<!--    <div class="container-fluid" style="background-color: rgb(99,140,168) ;">-->
+<!--        <div class="collapse navbar-collapse" id="navbarColor02">-->
+<!--            <ul class="navbar-nav me-auto">-->
+<!--                <li class="nav-item px-3">-->
+<!--                    <a href="/" class="navbar-brand" style="color: #e6d5c5;">-->
+<!--                        St Louis Attractions</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item px-3">-->
+<!--                    <a class="nav-link" th:href="@{/list}">Attractions</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item px-3">-->
+<!--                    <a class="nav-link" href="/attraction">Add Attraction</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item px-3">-->
+<!--                    <a class="nav-link" href="/category">Add Category</a>-->
+<!--                </li>-->
+
+<!--                <li class="nav-item px-3">-->
+
+<!--                    <a class="nav-link" href="/review">Write a Review</a>-->
+
+<!--                </li>-->
+
+<!--                <li class="nav-item px-3">-->
+<!--                    <a class="nav-link" th:href="@{/search}">Search</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--            <ul class="navbar-nav ms-auto">-->
+<!--                <li class="nav-item px-3">-->
+<!--                    <a class="nav-link" href="/login">Log In</a>-->
+<!--                </li>-->
+<!--                <li class="nav-item px-3">-->
+<!--                    <a class="nav-link" href="/signUp">Sign Up</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</nav>-->
 
 <div th:fragment="page-header" class="container-fluid" style="background-color: rgb(99,140,168) ;">
-    <nav id="navbar" class="navbar navbar-expand-sm navbar-light">
-        <a href="/" class="navbar-brand" style="color: #e6d5c5;">
-            St Louis Attractions</a>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light">
+        <a href="../" class="navbar-brand active" style="color: #e6d5c5;">
+            St Louis Attractions
+        <span class="visually-hidden">(current)</span>
+        </a>
         <button
                 class="navbar-toggler"
                 type="button"
@@ -32,17 +73,15 @@
         <div class="collapse navbar-collapse" id="toggleMobileMenu">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link scrollto" href="/categories">Categories</a>
+                    <a class="nav-link" th:href="@{/list}">Categories</a>
                 </li>
+                    <li class="nav-item">
+                        <a class = "nav-link" th:href="@{/list/attractions(column='All',value='View All')}">Attractions</a>
+                    </li>
                 <li class="nav-item">
-                    <a class="nav-link scrollto" href="/attractions">Attractions</a>
+                    <a class="nav-link" href="/review">Review</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" href="@{/add-review}">Add review</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link scrollto" th:href="@{/search}">Search</a>
-                </li>
+                <a class="nav-link" th:href="@{/search}">Search</a>
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item" th:unless = "${user}">
@@ -62,13 +101,6 @@
         </div>
     </nav>
 </div>
-
-    <!--    <li class="nav-item mx-1 nav-search">-->
-    <!--        <form method="POST" th:action="@{search/}" class="nav-link my-1">-->
-    <!--            <input class="form-control shadow-sm" name="searchQuery" type="search" placeholder="Title / Author / ISBN" aria-label="Search" />-->
-    <!--            <input class="form-control" name="searchParameter" type="hidden" value="all" aria-label="Search" />-->
-    <!--        </form>-->
-    <!--    </li>-->
 </div>
 
 <div th:fragment="page-title">
@@ -77,54 +109,3 @@
 
 </body>
 </html>
-
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="http://www.thymeleaf.org/">-->
-<!--<head th:fragment="head">-->
-<!--    <meta charset="UTF-8"/>-->
-
-<!--    <meta name="viewport" content="width = device-width, initial-scale = 1">-->
-
-<!--    <title th:text="${title}"></title>-->
-
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"-->
-<!--          integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">-->
-<!--    <link rel="stylesheet" th:href="@{styles.css}">-->
-<!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">-->
-
-<!--    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js"></script>-->
-
-<!--</head>-->
-<!--<body>-->
-
-<!--&lt;!&ndash; ======= Header ======= &ndash;&gt;-->
-<!--<div th:fragment="page-header" id="header" class="fixed-top d-flex align-items-center">-->
-<!--    <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">-->
-
-<!--        <h1 class="logo me-auto me-lg-0"><img src="img/Stl Attractions Logo.png" alt="" class="img-fluid"><a href="/">St Louis Attractions</a></h1>-->
-
-
-<!--        <nav id="navbar" class="navbar order-last order-lg-0">-->
-<!--            <ul>-->
-<!--                <li><a class="nav-link" href="/">Home</a></li>-->
-<!--                <li><a class="nav-link" href="/categories">Categories</a></li>-->
-<!--                <li><a class="nav-link" href="/attractions">Attractions</a></li>-->
-<!--                <li><a class="nav-link" href="/search">find an attraction</a></li>-->
-<!--                <li><a class="nav-link" href="/login">Login</a></li>-->
-<!--                <li><a class="nav-link" href="/register">Sign up</a></li>-->
-<!--                <li><a class="nav-link" href="#"><i class="bi bi-person-circle"></i></a></li>-->
-
-
-<!--                </ul>-->
-<!--        </nav>-->
-<!--    </div>-->
-<!--</div>-->
-<!--</div>-->
-
-
-<!--<script src="assets/js/main.js"></script>-->
-<!--</body>-->
-
-<!--</html>-->

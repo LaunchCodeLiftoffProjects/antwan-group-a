@@ -7,35 +7,24 @@
 <div th:replace="fragments :: page-header"></div>
 
 <div class="body-content">
-    <h1 class="centered">View Restaurants by Category</h1>
+    <h1 class="centered">View Attractions by Category</h1>
 </div>
 
 <table class="list">
     <tr style="font-size: 20px">
-        <th>All</th>
         <th>Category</th>
-        <th>Location</th>
     </tr>
-    <td>
-        <li>
-            <a th:href="@{/list/attractions(column='All',value='View All')}">View All</a>
-        </li>
-    </td>
+    <div>
+        <a href="/category"  class="btn-about animated fadeInUp scrollto">Add Category</a>
+    </div>
     <td>
         <li th:each="category : ${categories}">
-            <a th:href="@{/list/(column=category,value=${category.name})}" th:text="${category.name}" style=""></a>
+            <a th:href="@{/list/attractions(column=category,value=${category.name})}" th:text="${category.name}" style=""></a>
         </li>
-    </td>
-    <td>
-        <li th:each="attraction : ${attractions}">
-            <a th:href="@{/list/(column=address,value=${restaurant.address})}" ></a>
-        </li>
-    </td>
+
+<!--    <td ><a th:href="@{'/category' + ${category.id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category')">Delete</a> </td>-->
 </table>
 
-<div class="text-center">
-    <div th:replace="fragments :: app-name-auth"></div>
-</div>
 
 
 </body>

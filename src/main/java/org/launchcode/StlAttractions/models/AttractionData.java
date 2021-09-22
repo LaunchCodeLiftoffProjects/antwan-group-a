@@ -52,13 +52,15 @@ public class AttractionData {
         if (fieldName.equals("name")) {
             theValue = attraction.getName();
         }else if (fieldName.equals("category")){
-                theValue = attraction.getCategory().toString();
+            theValue = attraction.getCategory().toString();
         } else if (fieldName.equals("address")) {
             theValue = attraction.getAddress().toString();
         } else if (fieldName.equals("link")) {
             theValue = attraction.getLinkForAttraction().toString();
         }
-
+//        } else {
+//            theValue = attraction.getCategory().toString();
+//        }
         return theValue;
 }
 
@@ -66,7 +68,7 @@ public class AttractionData {
      * Search all Job fields for the given term.
      *
      * @param value The search term to look for.
-     * @param allAttractions The list of jobs to search.
+     * @param allAttractions The list of attractions to search.
      * @return      List of all jobs with at least one field containing the value.
      */
     public static ArrayList<Attraction> findByValue(String value, Iterable<Attraction> allAttractions) {
@@ -78,11 +80,16 @@ public class AttractionData {
 
             if (attraction.getName().toLowerCase().contains(lower_val)) {
                 results.add(attraction);
-            }  else if (attraction.getCategory().toString().toLowerCase().contains(lower_val)) {
+            }  else if (attraction.getAddress().toString().toLowerCase().contains(lower_val)) {
                 results.add(attraction);
-            }else if (attraction.getAddress().toString().toLowerCase().contains(lower_val)) {
+            } else if (attraction.getLinkForAttraction().toString().toLowerCase().contains(lower_val)) {
                 results.add(attraction);
             }
+//             else if (attraction.getCategory().toString().toLowerCase().contains(lower_val)) {
+//                results.add(attraction);
+//            }  else if (attraction.toString().toLowerCase().contains(lower_val)) {
+//                results.add(attraction);
+            //}
 
         }
 

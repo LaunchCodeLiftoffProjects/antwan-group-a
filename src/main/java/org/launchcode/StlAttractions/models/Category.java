@@ -10,16 +10,18 @@ import java.util.Set;
 @Entity
 public class Category extends AbstractEntity{
 
-    @OneToMany(mappedBy="category")
+    @OneToMany
+    @JoinColumn(name = "category_id")
     private List<Attraction> attraction = new ArrayList<>();
 
-    @NotNull
+    @NotNull(message = "Name is required.")
     @Size(min=3, max=150)
     private String name;
 
-    public Category(String name) {
+    public Category(String name, List<Attraction> attraction) {
         super();
         this.name = name;
+        this.attraction = attraction;
     }
 
     public Category() { }
@@ -35,6 +37,9 @@ public class Category extends AbstractEntity{
     }
 
     public List<Attraction> getAttraction() { return attraction; }
+
+    public void setAttraction(List<Attraction> attraction) { this.attraction = attraction; }
+
     @Override
     public String toString() {
         return name;

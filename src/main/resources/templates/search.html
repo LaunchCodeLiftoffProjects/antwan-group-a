@@ -46,12 +46,12 @@
 
                 <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >
                     <h3 style="text-align: center; color: black;">
-                        <a th:href="@{'/attractions' + ${attraction.id}}" th:text="${attraction.name}"></a>
+                        <a th:href="@{'/view' + ${attraction.id}}" th:text="${attraction.name}"></a>
                     </h3>
 
                     <p th:href="${attraction.address}" style="text-align: center"></p>
                     <p th:href="${attraction.linkForAttraction}" style="text-align: center"></p>
-<!--                    <p th:text="${'Category: ' + attraction.category}" style="text-align: center"></p>-->
+                    <p th:text="${attraction.category}" style="text-align: center"></p>
                 </td>
             </tr>
         </table>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+
+<head th:replace="fragments :: head"></head>
+
+<body>
+<div th:replace="fragments :: page-header"></div>
+
+<div class="row">
+    <div class="column">
+        <h1 class="attractionName" th:text="${attraction.name}" ></h1>
+        <img class="largeImage" src="/img/mus.jpg" width="600" height="300">
+
+<!--        <div>-->
+<!--            <img class="smallImage" style="margin-left: 200px;" src="/images/texasRoadhouse.jpg" width="100" height="100">-->
+<!--            <img class="smallImage" src="/images/texasRoadhouse.jpg" width="100" height="100">-->
+<!--            <img class="smallImage" src="/images/texasRoadhouse.jpg" width="100" height="100">-->
+<!--        </div>-->
+
+        <div>
+            <h3 style="margin: 75px;">Hours</h3>
+            <h6 th:text="${attraction.hoursOfOperationOpen + ':' + attraction.minutesOpen + ' ' + attraction.timeOfDayOpen}"></h6>
+            <h6 th:text="${attraction.hoursOfOperationEnd + ':' + attraction.minutesEnd + ' ' + attraction.timeOfDayEnd}"></h6>
+        </div>
+    </div>
+
+    <div class="column">
+        <div>
+            <h3>
+                <a class="reviewLink" href="/review">Write a Review</a>
+            </h3>
+        </div>
+
+        <div class="attractionInfo">
+            <h3 th:text="${attraction.category.name}"></h3>
+            <h3 th:href="${attraction.address}" th:text="${attraction.name}" target="_blank" style="text-align: center"></h3>
+            <h3 th:href="${attraction.linkForAttraction}" th:text="${Website: ' + attraction.name}" target="_blank"></h3>
+
+        </div>
+
+    </div>
+</div>
+</div>
+
+
+</body>
+</html>

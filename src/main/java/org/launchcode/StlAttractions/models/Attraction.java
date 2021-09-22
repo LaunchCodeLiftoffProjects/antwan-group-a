@@ -14,35 +14,51 @@ public class Attraction extends AbstractEntity{
     @ManyToOne
     private Category category;
 
-    @OneToMany(mappedBy = "attraction")
-    private List<Review> reviews = new ArrayList<>();
+//    @OneToMany(mappedBy = "attraction")
+//    private List<Review> reviews = new ArrayList<>();
 
+    @NotNull(message = "Name is required.")
+    @Size(min=1, max=150)
     private String name;
 
     @Size(max = 500, message = "Description too long!")
     private String description;
 
-    @NotNull
+    @NotNull(message = "Address is required.")
     private String address;
+
     private String linkForAttraction;
 
-    @NotNull(message = "Hours is required.")
-    private String openingTime;
+    private String minutesOpen;
 
-    @NotNull(message = "Hours is required.")
-    private String closingTime;
+    private String timeOfDayOpen;
+
+    private String hoursOfOperationOpen;
+
+    private String hoursOfOperationEnd;
+
+    private String minutesEnd;
 
 
-    public Attraction(String name,Category category , String description,String address, String linkForAttraction, String aOpeningTime, String aClosingTime, List<Review> reviews) {
+
+    private String timeOfDayEnd;
+
+
+    public Attraction(String name,Category category , String description,String address, String linkForAttraction,String hoursOfOperationOpen, String minutesOpen, String timeOfDayOpen, String hoursOfOperationEnd,
+                      String minutesEnd, String timeOfDayEnd) {
         super();
         this.name = name;
         this.category = category;
         this.description = description;
         this.address = address;
         this.linkForAttraction = linkForAttraction;
-        this.openingTime = aOpeningTime;
-        this.closingTime = aClosingTime;
-        this.reviews = reviews;
+        this.hoursOfOperationOpen = hoursOfOperationOpen;
+        this.minutesOpen = minutesOpen;
+        this.timeOfDayOpen = timeOfDayOpen;
+        this.hoursOfOperationEnd = hoursOfOperationEnd;
+        this.minutesEnd = minutesEnd;
+        this.timeOfDayEnd = timeOfDayEnd;
+
     }
 
 
@@ -76,25 +92,29 @@ public class Attraction extends AbstractEntity{
 
     public void setLinkForAttraction(String linkForAttraction) { this.linkForAttraction = linkForAttraction; }
 
-    public String getOpeningTime() {
-        return openingTime;
-    }
+    public String getHoursOfOperationOpen() { return hoursOfOperationOpen; }
 
-    public void setOpeningTime(String openingTime) {
-        this.openingTime = openingTime;
-    }
+    public void setHoursOfOperationOpen(String hoursOfOperationOpen) { this.hoursOfOperationOpen = hoursOfOperationOpen; }
 
-    public String getClosingTime() {
-        return closingTime;
-    }
+    public String getMinutesOpen() { return minutesOpen; }
 
-    public void setClosingTime(String closingTime) {
-        this.closingTime = closingTime;
-    }
+    public void setMinutesOpen(String minutesOpen) { this.minutesOpen = minutesOpen; }
 
-    public List<Review> getReviews() {return reviews;}
+    public String getTimeOfDayOpen() { return timeOfDayOpen; }
 
-    public void setReviews(List<Review> reviews) {this.reviews = reviews;}
+    public void setTimeOfDayOpen(String timeOfDayOpen) { this.timeOfDayOpen = timeOfDayOpen; }
+
+    public String getHoursOfOperationEnd() { return hoursOfOperationEnd; }
+
+    public void setHoursOfOperationEnd(String hoursOfOperationEnd) { this.hoursOfOperationEnd = hoursOfOperationEnd; }
+
+    public String getMinutesEnd() { return minutesEnd; }
+
+    public void setMinutesEnd(String minutesEnd) { this.minutesEnd = minutesEnd; }
+
+    public String getTimeOfDayEnd() { return timeOfDayEnd; }
+
+    public void setTimeOfDayEnd(String timeOfDayEnd) { this.timeOfDayEnd = timeOfDayEnd; }
 
 
     @Override
