@@ -6,17 +6,17 @@
 <nav th:replace="fragments :: navbar"></nav>
 
 <form method="post" style="max-width:700px;">
-  <h4> Delete Products</h4>
-  <th:block th:each="category : ${categories}">
+  <h4> Delete Attractions</h4>
+  <th:block th:each="attraction : ${attractions}">
     <div class="form-group">
       <label>
-        <span th:text="${category.name}"></span>
-        <input type="checkbox" name="categoryIds" th:value="${category.id}" class="form-control">
+        <span th:text="${attraction.name}"></span>
+        <input type="checkbox" name="attractionIds" th:value="${attraction.id}" class="form-control">
       </label>
     </div>
   </th:block>
   <br>
-  <input type="submit" value="Delete Selected Categories" class="btn btn-danger">
+  <input type="submit" value="Delete Selected Attractions" class="btn btn-danger">
 </form>
 
 

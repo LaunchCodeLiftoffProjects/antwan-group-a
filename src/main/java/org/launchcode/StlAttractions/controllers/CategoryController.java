@@ -55,9 +55,10 @@ public class CategoryController {
         }
     }
 
+}
+
 //    @RequestMapping("/delete/{categoryId}")
 //    public String processDeleteProductForm(@PathVariable(name = "categoryId") int categoryId, @org.jetbrains.annotations.NotNull Model model) {
 //        model.addAttribute("product", categoryRepository.deleteById(categoryId));
 //        return "redirect:/list";
 //    }
-}

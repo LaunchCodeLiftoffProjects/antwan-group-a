@@ -1,6 +1,7 @@
 package org.launchcode.StlAttractions.models;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -14,6 +15,10 @@ public class Review extends AbstractEntity {
     @ManyToOne
     private Attraction attraction;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
     @NotNull(message = "Username is required.")
     private String name;
 
@@ -26,12 +31,13 @@ public class Review extends AbstractEntity {
     @NotNull(message = "Rating is required.")
     private Integer rating;
 
-    public Review(Attraction attraction, String name, String date, String comment, Integer rating) {
+    public Review(Attraction attraction, String name, String date, String comment, Integer rating,User user) {
         this.attraction = attraction;
         this.name = name;
         this.date = date;
         this.comment = comment;
         this.rating = rating;
+        this.user = user;
     }
 
     public Review() { }
@@ -76,6 +82,15 @@ public class Review extends AbstractEntity {
 
     public void setRating(Integer rating) {
         this.rating = rating;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return comment;
     }
 
 }

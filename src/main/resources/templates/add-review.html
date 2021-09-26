@@ -3,7 +3,7 @@
 
 <head th:replace="fragments :: head"></head>
 
-<body>
+<body style="background:url(img/log-back.jpg); background-size: cover;">
 <div th:replace="fragments :: page-header"></div>
 
 <div class="body-content">
@@ -38,16 +38,16 @@
     <div>
         <label th:for="rating">Rating:
             <span class="rating">
-                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" th:field="${review.rating}" />
-                <label for="star1">☆</label>
-                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" th:field="${review.rating}" />
-                <label for="star2">☆</label>
-                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" th:field="${review.rating}" />
-                <label for="star3">☆</label>
-                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" th:field="${review.rating}" />
-                <label for="star4">☆</label>
                 <input id="star5" name="star" type="radio" value="5" class="radio-btn hide" th:field="${review.rating}" />
                 <label for="star5">☆</label>
+                <input id="star4" name="star" type="radio" value="4" class="radio-btn hide" th:field="${review.rating}" />
+                <label for="star4">☆</label>
+                <input id="star3" name="star" type="radio" value="3" class="radio-btn hide" th:field="${review.rating}" />
+                <label for="star3">☆</label>
+                <input id="star2" name="star" type="radio" value="2" class="radio-btn hide" th:field="${review.rating}" />
+                <label for="star2">☆</label>
+                <input id="star1" name="star" type="radio" value="1" class="radio-btn hide" th:field="${review.rating}" />
+                <label for="star1">☆</label>
             <div class="clear"></div>
             </span></label>
     </div>

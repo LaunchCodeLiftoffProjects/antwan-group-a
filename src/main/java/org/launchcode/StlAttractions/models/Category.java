@@ -10,8 +10,7 @@ import java.util.Set;
 @Entity
 public class Category extends AbstractEntity{
 
-    @OneToMany
-    @JoinColumn(name = "category_id")
+    @OneToMany(mappedBy = "category")
     private List<Attraction> attraction = new ArrayList<>();
 
     @NotNull(message = "Name is required.")

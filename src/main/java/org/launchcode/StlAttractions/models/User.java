@@ -28,8 +28,8 @@ public class User extends AbstractEntity {
 
     private static final BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 
-//    @OneToMany(mappedBy = "user")
-//    private final List<Review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private final List<Review> reviews = new ArrayList<>();
 
     public User() {}
 
@@ -73,7 +73,7 @@ public class User extends AbstractEntity {
         return encoder.matches(password, pwHash);
     }
 
-//    public List<Review> getReviews() {
-//        return reviews;
-//    }
+    public List<Review> getReviews() {
+        return reviews;
+    }
 }

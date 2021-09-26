@@ -2,15 +2,16 @@ package org.launchcode.StlAttractions.controllers;
 
 import org.launchcode.StlAttractions.data.AttractionRepository;
 import org.launchcode.StlAttractions.data.CategoryRepository;
-import org.launchcode.StlAttractions.models.Attraction;
-import org.launchcode.StlAttractions.models.AttractionData;
-import org.launchcode.StlAttractions.models.Category;
+import org.launchcode.StlAttractions.data.ReviewRepository;
+import org.launchcode.StlAttractions.models.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
+import org.w3c.dom.Attr;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 import java.util.Optional;
 
@@ -23,6 +24,12 @@ public class AttractionController {
 
     @Autowired
     private CategoryRepository categoryRepository;
+
+    @Autowired
+    private ReviewRepository reviewRepository;
+
+    @Autowired
+    private AuthenticationController authenticationController;
 
 
     @GetMapping("")
@@ -52,6 +59,7 @@ public class AttractionController {
 
         return "redirect:";
     }
+}
 //    @GetMapping("view/{attractionId}")
 //    public String displayViewAttraction(Model model, @PathVariable int attractionId) {
 //
@@ -63,6 +71,25 @@ public class AttractionController {
 //        } else {
 //            return "redirect:../";
 //        }
+
+
+
+//
+//    @GetMapping("delete")
+//    public String renderDeleteEventForm(Model model) {
+//        model.addAttribute("attraction", attractionRepository.findAll());
+//        return "delete";
+//    }
+//
+//    @PostMapping("delete")
+//    public String processDeleteEventsForm(@RequestParam(required = false) int[] attractionIds) {
+//
+//        if (attractionIds != null) {
+//            for (int id : attractionIds) {
+//                attractionRepository.deleteById(id);
+//            }
+//        }
+//
+//        return "redirect:";
 //    }
 
-}

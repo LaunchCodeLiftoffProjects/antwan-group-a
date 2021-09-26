@@ -3,9 +3,8 @@
 
 <head th:replace="fragments :: head"></head>
 
-<body>
+<body style="background:url(img/log-back.jpg); background-size: cover;">
 <div th:replace="fragments :: page-header"></div>
-
 <div class="body-content">
     <h1 class="centered">View Attractions by Category</h1>
 </div>
@@ -14,18 +13,15 @@
     <tr style="font-size: 20px">
         <th>Category</th>
     </tr>
-    <div>
-        <a href="/category"  class="btn-about animated fadeInUp scrollto">Add Category</a>
-    </div>
     <td>
+        <div>
+            <a href="/category"  class="btn-about animated fadeInUp scrollto">Add Category</a>
+        </div>
         <li th:each="category : ${categories}">
             <a th:href="@{/list/attractions(column=category,value=${category.name})}" th:text="${category.name}" style=""></a>
         </li>
-
 <!--    <td ><a th:href="@{'/category' + ${category.id}}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this category')">Delete</a> </td>-->
 </table>
-
-
 
 </body>
 </html>

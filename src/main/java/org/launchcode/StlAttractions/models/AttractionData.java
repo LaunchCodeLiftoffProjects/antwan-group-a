@@ -27,7 +27,7 @@ public class AttractionData {
 
         ArrayList<Attraction> results = new ArrayList<>();
 
-        if (value.toLowerCase().equals("all")) {
+        if (value.equalsIgnoreCase("all")) {
             return (ArrayList<Attraction>) allAttractions;
         }
 
@@ -48,24 +48,21 @@ public class AttractionData {
     }
 
     public static String getFieldValue(Attraction attraction, String fieldName) {
-        String theValue = null;
+        String theValue;
         if (fieldName.equals("name")) {
             theValue = attraction.getName();
         }else if (fieldName.equals("category")){
             theValue = attraction.getCategory().toString();
-        } else if (fieldName.equals("address")) {
-            theValue = attraction.getAddress().toString();
         } else if (fieldName.equals("link")) {
             theValue = attraction.getLinkForAttraction().toString();
-        }
-//        } else {
-//            theValue = attraction.getCategory().toString();
-//        }
+        } else {
+           theValue = attraction.getAddress().toString();
+       }
         return theValue;
 }
 
     /**
-     * Search all Job fields for the given term.
+     * Search all Attraction fields for the given term.
      *
      * @param value The search term to look for.
      * @param allAttractions The list of attractions to search.
@@ -80,16 +77,13 @@ public class AttractionData {
 
             if (attraction.getName().toLowerCase().contains(lower_val)) {
                 results.add(attraction);
-            }  else if (attraction.getAddress().toString().toLowerCase().contains(lower_val)) {
+            }  else if (attraction.getAddress().toLowerCase().contains(lower_val)) {
                 results.add(attraction);
-            } else if (attraction.getLinkForAttraction().toString().toLowerCase().contains(lower_val)) {
+            } else if (attraction.getLinkForAttraction().toLowerCase().contains(lower_val)) {
+                results.add(attraction);
+            } else if (attraction.getCategory().getName().toLowerCase().contains(lower_val)) {
                 results.add(attraction);
             }
-//             else if (attraction.getCategory().toString().toLowerCase().contains(lower_val)) {
-//                results.add(attraction);
-//            }  else if (attraction.toString().toLowerCase().contains(lower_val)) {
-//                results.add(attraction);
-            //}
 
         }
 

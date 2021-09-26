@@ -1,153 +1,18 @@
-
-#header {
-  background: rgba(12, 11, 9, 0.6);
-  border-bottom: 1px solid rgba(12, 11, 9, 0.6);
-  transition: all 0.5s;
-  z-index: 997;
-  padding: 15px 0;
-  top: 40px;
-}
-
-#header.header-scrolled {
-  top: 0;
-  background: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid #37332a;
-}
-
-#header .logo {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 300;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-}
-
-#header .logo a {
-  color: #fff;
-}
-
-#header .logo img {
-  max-height: 40px;
-}
-
-
-#hero {
-  width: 100%;
-  height: 100%;
-  background: url("img/mus.jpg") top center;
-  background-size: cover;
-       background-position:center;
-       background-repeat:no-repeat;
-  position: relative;
-  padding: 0;
-}
-#about{
-    width: 100%;
-    height: 100vh;
-    background: rgb(169,169,169)
-}
-#categories{
-     width: 100%;
-     height: 100%;
-     background: url("img/bkground.jpg") top center;
-     background-size: cover;
-     background-position:center;
-     background-repeat:no-repeat;
-     position: relative;
-     padding: 0;
-}
-#restaurants{
-     width: 100%;
-     height: 100%;
-     background: url("img/background.jpg") top center;
-     background-size: cover;
-     background-position:center;
-     background-repeat:no-repeat;
-     position: relative;
-     padding: 0;
-}
-#museums{
-     width: 100%;
-     height: 100%;
-     background: url("img/background.jpg") top center;
-     background-size: cover;
-     background-position:center;
-     background-repeat:no-repeat;
-     position: relative;
-     padding: 0;
-}
-#events{
-     width: 100%;
-     height: 100%;
-     background: url("img/background.jpg") top center;
-     background-size: cover;
-     background-position:center;
-     background-repeat:no-repeat;
-     position: relative;
-     padding: 0;
-}#parks{
-      width: 100%;
-       height: 100%;
-       background: url("img/background.jpg") top center;
-       background-size: cover;
-       background-position:center;
-       background-repeat:no-repeat;
-      position: relative;
-      padding: 0;
- }
- #historical{
-      width: 100%;
-      height: 100%;
-      background: url("img/background.jpg") top center;
-      background-size: cover;
-      background-position:center;
-      background-repeat:no-repeat;
-      position: relative;
-      padding: 0;
- }
-  #attractions{
-       width: 100%;
-       height: 100%;
-       background: url("img/background.jpg") top center;
-       background-size: cover;
-       background-position:center;
-       background-repeat:no-repeat;
-       position: relative;
-       padding: 0;
-  }
-#hero:before {
-  content: "";
-
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#hero .container {
-  padding-top: 110px;
-}
-
-
-#hero h1 {
+h1 {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: #fff;
+  color: rgb(99,140,168);
   font-family: "Poppins", sans-serif;
 }
 
-#hero h1 span {
+    h1 span {
   color: #e6d5c5;
 }
 
-#hero h2 {
-  color: #eee;
+ h2 {
+  color: rgb(99,140,168);
   margin-bottom: 10px 0 0 0;
   font-size: 22px;
 }
@@ -174,149 +39,46 @@
   color: #fff;
 }
 
-
-
-
-
-
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
-
-  #hero .container {
+.container {
     padding-top: 130px;
     padding-bottom: 60px;
   }
 }
 
-  #hero h2 {
+  h2 {
     font-size: 18px;
     line-height: 24px;
   }
 }
-
-@-webkit-keyframes pulsate-btn {
-  0% {
-    transform: scale(0.6, 0.6);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1, 1);
-    opacity: 0;
-  }
 }
-
-@keyframes pulsate-btn {
-  0% {
-    transform: scale(0.6, 0.6);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1, 1);
-    opacity: 0;
-  }
-}
-
-#header {
-  background: rgba(12, 11, 9, 0.6);
-  border-bottom: 1px solid rgba(12, 11, 9, 0.6);
-  transition: all 0.5s;
-  z-index: 997;
-  padding: 15px 0;
-  top: 40px;
-}
-
-#header.header-scrolled {
-  top: 0;
-  background: rgba(0, 0, 0, 0.85);
-  border-bottom: 1px solid #37332a;
-}
-
-#header .logo {
-  font-size: 28px;
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-  font-weight: 300;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  font-family: "Poppins", sans-serif;
-}
-
-#header .logo a {
-  color: #fff;
-}
-
-#header .logo img {
-  max-height: 40px;
-}
-
-@media (max-width: 992px) {
-  .book-a-table-btn {
-    margin: 0 15px 0 0;
-    padding: 8px 20px;
-  }
-}
-#hero {
-  width: 100%;
-  height: 100vh;
-  background: url("img/stlbcg.jpg");
-  background-size: cover;
-  position: relative;
-  padding: 0;
-}
-#about{
-    width: 100%;
-    height: 100vh;
-    background: rgb(169,169,169)
-}
-
-#hero:before {
-  content: "";
-
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-}
-
-#hero .container {
+.container {
   padding-top: 110px;
 }
 
-@media (max-width: 992px) {
-  #hero .container {
-    padding-top: 98px;
-  }
-}
-
-#hero h1 {
+h1 {
   margin: 0;
   font-size: 48px;
   font-weight: 700;
   line-height: 56px;
-  color: #fff;
+  color:#e6d5c5;
   font-family: "Poppins", sans-serif;
 }
 
-#hero h1 span {
+h1 span {
   color: #e6d5c5;
 }
 
-#hero h2 {
-  color: #eee;
+h2 {
+  color: rgb(99,140,168);
   margin-bottom: 10px 0 0 0;
   font-size: 22px;
 }
 
-#hero .btns {
+.btns {
   margin-top: 30px;
 }
 
-#hero .btn-about, #hero .btn-book {
+.btn-about {
   font-weight: 600;
   font-size: 13px;
   letter-spacing: 0.5px;
@@ -326,36 +88,24 @@
   border-radius: 50px;
   transition: 0.3s;
   line-height: 1;
-  color: white;
+  color: rgb(99,140,168);
   border: 2px solid  #e6d5c5;
 }
 
-#hero .btn-about:hover {
+.btn-about:hover {
   background: rgb(99,140,168);
   color: #fff;
 }
 
-#hero .btn-book {
-  margin-left: 15px;
-}
 
 
 
 
 
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
 
-  #hero .container {
-    padding-top: 130px;
-    padding-bottom: 60px;
-  }
-}
 
-  #hero h2 {
+
+.h2 {
     font-size: 18px;
     line-height: 24px;
   }
@@ -381,4 +131,165 @@
     transform: scale(1, 1);
     opacity: 0;
   }
+
+}
+.centeredTable {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.centered {
+    text-align: center;
+    margin-top: 75px;
+}
+
+.container {
+    margin: 30px auto;
+    border-top: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4;
+    width: 400px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    margin-top: 10px;
+}
+
+td, th {
+    padding: 10px;
+}
+
+th {
+    text-align: center;
+}
+
+td {
+    vertical-align: top;
+}
+
+form {
+    max-width: 600xp;
+    margin: auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.attractionName {
+    font-size: 50px;
+    margin-left: 200px;
+    margin-top: 50px;
+    font-weight: bold;
+    font-family: belgrano;
+}
+
+.attractionInfo {
+    margin-top: 175px;
+    margin-left: 50px;
+}
+
+.reviewLink {
+    position: absolute;
+    top: 75px;
+    right: 75px;
+    color: black;
+}
+
+.column {
+  float: left;
+  width: 50%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.largeImage {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    margin-left: 75px;
+    margin-top: 10px;
+}
+
+.smallImage {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 100px;
+  margin-left: 15px;
+  margin-top: 10px;
+}
+
+.search {
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+.list {
+    margin-left: auto;
+    margin-right: auto;
+    width: 700px;
+    text-align: center;
+}
+
+.txt-center {
+    text-align: center;
+}
+.hide {
+    display: none;
+}
+
+.clear {
+    float: none;
+    clear: both;
+}
+
+.rating {
+    width: 90px;
+    unicode-bidi: bidi-override;
+    direction: rtl;
+    text-align: center;
+    position: relative;
+}
+
+.rating > label {
+    float: right;
+    display: inline;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    width: 1.1em;
+    cursor: pointer;
+    color: #000;
+}
+
+.rating > label:hover,
+.rating > label:hover ~ label,
+.rating > input.radio-btn:checked ~ label {
+    color: transparent;
+}
+
+.rating > label:hover:before,
+.rating > label:hover ~ label:before,
+.rating > input.radio-btn:checked ~ label:before,
+.rating > input.radio-btn:checked ~ label:before {
+    content: "\2605";
+    position: absolute;
+    left: 0;
+    color: #FFD700;
+}
+
+.linkButton {
+  background-color: #e7e7e7;
+  color: black;
+  border: 1px solid black;
+  padding: 2px 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
 }

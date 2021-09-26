@@ -3,16 +3,15 @@
 
 <head th:replace="fragments :: head"></head>
 
-<body>
+<body style="background:url(img/log-back.jpg); background-size: cover;">
 <div th:replace="fragments :: page-header"></div>
-<section id="attraction">
     <div class="body-content">
         <h2 class="centered" th:text="${#strings.capitalizeWords(title)}"></h2>
     </div>
-    <div>
-        <a href="/attraction"  class="btn-about animated fadeInUp scrollto">Add Attraction</a>
+    <div class = "centered">
+    <a href="/attraction"  class="btn-about animated fadeInUp scrollto">Add Attraction</a>
     </div>
-    <table class="table table-striped">
+    <table class="centeredTable">
         <tr th:each="attraction : ${attractions}">
             <td class="container" style="border-left: 1px solid #e4e4e4; padding-left: 10px;">
                 <img class="largeImage" src="/img/mus.jpg" width="300" height="150">
@@ -20,17 +19,29 @@
             <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >
                 <h3 style="text-align: center; color: black;">
                     <a th:href="@{'/view/' + ${attraction.id}}" th:text="${attraction.name}"></a>
+                    <p th:text="${attraction.category.name}"></p>
                 </h3>
-            <td th:text="${attraction.name}"></td>
-            <td th:text="${attraction.description}"></td>
-            <td> <a th:href="${attraction.address}" th:text="${attraction.name}" target="_blank" /></td>
-            <td><a th:href="${attraction.linkForAttraction}" th:text="${attraction.name}" target="_blank" /></td>
-            <td th:text="${attraction.category}"></td>
-
             </td>
         </tr>
     </table>
-</section>
+<!--<table th:if="${attraction.review} != null" class="table">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--        <th>review</th>-->
+<!--        <th>user</th>-->
+<!--        <th>rating</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="review: ${attraction.reviews}">-->
+<!--        <td th:text="${review.comment}"></td>-->
+<!--        <td th:text="${review.user.username}"></td>-->
+<!--        <td>-->
+<!--        </td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--</table>-->
+<!--    <li><a th:href="@{/delete}">Delete Attractions</a></li>-->
 </body>
 </html>
 

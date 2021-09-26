@@ -14,8 +14,8 @@ public class Attraction extends AbstractEntity{
     @ManyToOne
     private Category category;
 
-//    @OneToMany(mappedBy = "attraction")
-//    private List<Review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "attraction")
+    private List<Review> review = new ArrayList<>();
 
     @NotNull(message = "Name is required.")
     @Size(min=1, max=150)
@@ -58,11 +58,14 @@ public class Attraction extends AbstractEntity{
         this.hoursOfOperationEnd = hoursOfOperationEnd;
         this.minutesEnd = minutesEnd;
         this.timeOfDayEnd = timeOfDayEnd;
-
     }
 
 
     public Attraction() {}
+
+    public List<Review> getReview() {return review;}
+
+    public void setReview(List<Review> review) {this.review = review;}
 
     public String getName() {
         return name;
@@ -115,6 +118,7 @@ public class Attraction extends AbstractEntity{
     public String getTimeOfDayEnd() { return timeOfDayEnd; }
 
     public void setTimeOfDayEnd(String timeOfDayEnd) { this.timeOfDayEnd = timeOfDayEnd; }
+
 
 
     @Override

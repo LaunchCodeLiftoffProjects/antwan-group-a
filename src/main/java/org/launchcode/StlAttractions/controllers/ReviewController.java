@@ -47,18 +47,18 @@ public class ReviewController {
 
         return "redirect:";
     }
-
-    @GetMapping("view/{reviewId}")
-
-    public String displayViewReview(Model model, @PathVariable int reviewId) {
-
-        Optional optReview = reviewRepository.findById(reviewId);
-        if (optReview.isPresent()) {
-            Review review = (Review) optReview.get();
-            model.addAttribute("review", review);
-            return "view-review";
-        } else {
-            return "redirect:../";
-        }
-    }
 }
+//    @GetMapping("view/{reviewId}")
+//
+//    public String displayViewReview(Model model, @PathVariable int reviewId) {
+//
+//        Optional optReview = reviewRepository.findById(reviewId);
+//        if (optReview.isPresent()) {
+//            Review review = (Review) optReview.get();
+//            model.addAttribute("review", review);
+//            return "view-review";
+//        } else {
+//            return "redirect:../";
+//        }
+//    }
+//}
