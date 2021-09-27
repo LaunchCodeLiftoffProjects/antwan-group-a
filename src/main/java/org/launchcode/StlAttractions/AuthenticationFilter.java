@@ -21,7 +21,7 @@ public class AuthenticationFilter implements HandlerInterceptor {
     @Autowired
     AuthenticationController authenticationController;
 
-    private static final List<String> blacklist = Arrays.asList("/attraction", "/review");
+    private static final List<String> blacklist = Arrays.asList("/category","/attraction", "/review");
 
     private static boolean isBlacklisted(String path) {
         for (String pathRoot : blacklist) {

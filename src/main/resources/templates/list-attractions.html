@@ -20,66 +20,11 @@
                 <h3 style="text-align: center; color: black;">
                     <a th:href="@{'/view/' + ${attraction.id}}" th:text="${attraction.name}"></a>
                     <p th:text="${attraction.category.name}"></p>
+<!--                    <p th:text="${'Rating: ' + review.rating}"></p>-->
                 </h3>
             </td>
         </tr>
     </table>
-<!--<table th:if="${attraction.review} != null" class="table">-->
-<!--    <thead>-->
-<!--    <tr>-->
-<!--        <th>review</th>-->
-<!--        <th>user</th>-->
-<!--        <th>rating</th>-->
-<!--    </tr>-->
-<!--    </thead>-->
-<!--    <tbody>-->
-<!--    <tr th:each="review: ${attraction.reviews}">-->
-<!--        <td th:text="${review.comment}"></td>-->
-<!--        <td th:text="${review.user.username}"></td>-->
-<!--        <td>-->
-<!--        </td>-->
-<!--    </tr>-->
-<!--    </tbody>-->
-<!--</table>-->
-<!--    <li><a th:href="@{/delete}">Delete Attractions</a></li>-->
+
 </body>
 </html>
-
-
-
-<!--<!DOCTYPE html>-->
-<!--<html lang="en" xmlns:th="https://www.thymeleaf.org/">-->
-
-<!--<head th:replace="fragments :: head"></head>-->
-
-<!--<body>-->
-<!--<div th:replace="fragments :: page-header"></div>-->
-<!--<section id="parks">-->
-<!--    <div class="body-content">-->
-<!--        <h2 class="centered" th:text="${#strings.capitalizeWords(title)}"></h2>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <a href="/attraction"  class="btn-about animated fadeInUp scrollto">Add Attraction</a>-->
-<!--    </div>-->
-<!--    <div>-->
-<!--        <a href="/review" class="btn-about animated fadeInUp scrollto">Write a Review</a>-->
-<!--    </div>-->
-<!--    <table class="centeredTable">-->
-<!--        <tr th:each="attraction : ${attractions}">-->
-<!--            <td class="container" style="border-left: 1px solid #e4e4e4; padding-left: 10px;">-->
-<!--                <img class="largeImage" src="/img/mus.jpg" width="300" height="150">-->
-<!--            </td>-->
-<!--            <td class="container" style="border-right: 1px solid #e4e4e4; padding-right: 10px;" >-->
-<!--                <h3 style="text-align: center; color: black;">-->
-<!--                    <a th:href="@{'/view/' + ${attraction.id}}" th:text="${attraction.name}"></a>-->
-<!--                </h3>-->
-<!--                <p th:href="${attraction.address}" style="text-align: center"></p>-->
-<!--                <p th:href="${attraction.linkForAttraction}" style="text-align: center"></p>-->
-<!--                <p th:text="${'Category: ' + attraction.category}" style="text-align: center"></p>-->
-
-<!--            </td>-->
-<!--        </tr>-->
-<!--    </table>-->
-<!--</section>-->
-<!--</body>-->
-<!--</html>-->

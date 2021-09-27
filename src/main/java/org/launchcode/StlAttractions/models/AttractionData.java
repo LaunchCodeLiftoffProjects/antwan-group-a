@@ -3,6 +3,7 @@ package org.launchcode.StlAttractions.models;
 import org.launchcode.StlAttractions.models.Attraction;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 
 // This is a change made in sandbox.
 
@@ -73,7 +74,9 @@ public class AttractionData {
 
         ArrayList<Attraction> results = new ArrayList<>();
 
+
         for (Attraction attraction : allAttractions) {
+
 
             if (attraction.getName().toLowerCase().contains(lower_val)) {
                 results.add(attraction);
@@ -86,7 +89,6 @@ public class AttractionData {
             }
 
         }
-
         return results;
     }
 

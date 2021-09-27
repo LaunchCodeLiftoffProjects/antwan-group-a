@@ -29,6 +29,7 @@ public class Attraction extends AbstractEntity{
 
     private String linkForAttraction;
 
+
     private String minutesOpen;
 
     private String timeOfDayOpen;

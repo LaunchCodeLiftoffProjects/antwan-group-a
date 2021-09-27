@@ -5,6 +5,7 @@
 <body>
 
 <div th:replace="fragments :: page-header"></div>
+<div class="alert alert-warning text-center" role="alert" th:text="${mustlogin}" th:if="${mustlogin}"></div>
 
 <div th:replace="fragments :: page-title"></div>
 
@@ -19,30 +20,32 @@
       <h4 th:text="${user.email}"></h4>
     </div>
 
-    <div class="text-justify"><br>
-      <h4 th:text="${'My Reviews:'}"></h4>
-    </div>
-
   </div>
-
-  <table class="table table-hover">
-    <thead>
-    <tr>
-      <!--            <td scope="col"></td>-->
-      <th scope="col">Attraction</th>
-      <th scope="col">Review</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="review : ${user.getReviews}">
-      <!--                <td><img class="soda-img" th:src="@{${drink.imagePath}}"></td>-->
-      <td th:text="${review.attraction}"></td>
-      <td th:text="${review}"></td>
-    </tr>
-    </tbody>
-  </table>
-
-
+</div>
 </div>
 </body>
 </html>
+
+
+
+<!--<div class="text-justify"><br>-->
+<!--  <h4 th:text="${'My Reviews:'}"></h4>-->
+<!--</div>-->
+<!--  <table class="table table-hover">-->
+<!--    <thead>-->
+<!--    <tr>-->
+<!--      &lt;!&ndash;            <td scope="col"></td>&ndash;&gt;-->
+<!--      <th scope="col">Attraction</th>-->
+<!--      <th scope="col">Review</th>-->
+<!--    </tr>-->
+<!--    </thead>-->
+<!--    <tbody>-->
+<!--    <tr th:each="review : ${user.getReviews}">-->
+<!--      &lt;!&ndash;                <td><img class="soda-img" th:src="@{${drink.imagePath}}"></td>&ndash;&gt;-->
+<!--      <td th:text="${review.attraction}"></td>-->
+<!--      <td th:text="${review}"></td>-->
+<!--    </tr>-->
+<!--    </tbody>-->
+<!--  </table>-->
+
+

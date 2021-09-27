@@ -28,9 +28,9 @@ public class ListController {
 
         columnChoices.put("all", "All");
         columnChoices.put("name", "Name");
-        columnChoices.put("address", "Address");
-        columnChoices.put("link", "Link");
-//        columnChoices.put("category", "Category");
+        columnChoices.put("category", "Category");
+        columnChoices.put("location", "Location");
+
     }
 
     @RequestMapping("")
