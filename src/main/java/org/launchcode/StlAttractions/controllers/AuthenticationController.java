@@ -1,7 +1,7 @@
 package org.launchcode.StlAttractions.controllers;
 
-import org.launchcode.StlAttractions.data.UserRepository;
 import org.launchcode.StlAttractions.models.User;
+import org.launchcode.StlAttractions.data.UserRepository;
 import org.launchcode.StlAttractions.models.dto.LoginFormDTO;
 import org.launchcode.StlAttractions.models.dto.RegisterFormDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -85,7 +85,7 @@ public class AuthenticationController {
         userRepository.save(newUser);
         setUserInSession(request.getSession(), newUser);
 
-        return "redirect:login";
+        return "redirect:";
     }
 
     @GetMapping("/login")

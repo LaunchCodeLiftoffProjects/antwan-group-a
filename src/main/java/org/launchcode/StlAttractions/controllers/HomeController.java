@@ -35,13 +35,14 @@ public class HomeController {
     }
 
     @GetMapping("view/{attractionId}")
-    public String displayViewAttraction(Model model, @PathVariable int attractionId) {
+    public String displayViewAttraction(Model model,HttpServletRequest request, @PathVariable int attractionId) {
 
         Optional optAttraction = attractionRepository.findById(attractionId);
         if (optAttraction.isPresent()) {
             Attraction attraction = (Attraction) optAttraction.get();
             model.addAttribute("attraction", attraction);
 
+            User user = authenticationController.getUserFromSession(request.getSession());
 
             String column = "attraction";
             String value = attraction.getName();
